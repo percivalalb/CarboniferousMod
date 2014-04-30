@@ -1,0 +1,11 @@
+Carboniferous Mod - Changelog
+
+Update List Key
+(+) A new feature
+(-) A removed feature
+(#) A changed feature
+(*) A bug fix
+(/) Other
+
+v1.1.0a
++ Updated to 1.7.2

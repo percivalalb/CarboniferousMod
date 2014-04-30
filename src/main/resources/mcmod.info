@@ -1,0 +1,10 @@
+[{
+	"modid": "CarboniferousMod",
+	"name": "Carboniferous Mod",
+	"description": "Go back 360 million years in the past into the Carboniferous era. Where the oxygen is double what it is today. This resulted in hyper plant growth and hyper insect growth. Step through the time travel portal and prepare for what lies ahead!",
+	"version": "${version}",
+	"mcversion": "${mcversion}",
+	"updateUrl": "",
+	"authors": [ "ProPercivalalb" ],
+	"credits": "ProPercivalalb, Dylan4Ever, IHVD, others. Based on the Pre-Pre Historic Mod"
+}]
