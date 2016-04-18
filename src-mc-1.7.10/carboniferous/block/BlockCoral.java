@@ -6,7 +6,9 @@ import carboniferous.api.Properties;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockBush;
 import net.minecraft.block.BlockFlower;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
@@ -15,11 +17,10 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
-public class BlockCoral extends BlockFlower {
+public class BlockCoral extends BlockBush {
 
 	public BlockCoral() {
-		super(0);
-		//TODO set material Material.water
+		super(Material.water);
 		this.setCreativeTab(null);
 	}
 	
@@ -52,26 +53,12 @@ public class BlockCoral extends BlockFlower {
 	}
 	
 	@Override
-	public boolean canBlockStay(World par1World, int par2, int par3, int par4)
-    {
+	public boolean canBlockStay(World par1World, int par2, int par3, int par4) {
         Block soil = par1World.getBlock(par2, par3 - 1, par4);
         Block id = par1World.getBlock(par2, par3 + 1, par4);
-        return (id == Blocks.flowing_water || id == Blocks.water || id == this) && ((soil != null && soil == this)||(soil != null && soil.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this)));
+        return (id == Blocks.flowing_water || id == Blocks.water) && ((soil != null && soil == this)||(soil != null && soil.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this)));
     }
-	
-	protected boolean canThisPlantGrowOnThisBlock(Block par1) {
-	    return par1 == this || par1 == ModBlocks.grass || par1 == ModBlocks.dirt || par1 == ModBlocks.tilledEarth;
-	}
-	
-	@Override
-	public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plant) {
-		 Block soil = world.getBlock(x, y -1 , z);
-		 if(soil != null && soil == this) {
-			 return true;
-		 }
-		 return false;
-		 
-    }
+
 	
 	@Override
 	public boolean isReplaceable(IBlockAccess world, int x, int y, int z) { 
