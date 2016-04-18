@@ -12,7 +12,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.World;
 
 /**
@@ -85,6 +87,12 @@ public class BlockMultipleBlocks3 extends Block {
     		return Items.coal;
     	
     	return super.getItemDropped(meta, random, fortune);
+    }
+    
+
+    @Override
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z, EntityPlayer player) {
+    	return new ItemStack(this, 1, world.getBlockMetadata(x, y, z));
     }
     
     @Override

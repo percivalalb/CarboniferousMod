@@ -141,7 +141,7 @@ public class BiomeGenBaseCarboniferous extends BiomeGenBase {
                             {
                                 block = null;
                                 block1 = ModBlocks.multiBlock1;
-                                p_150560_3_[i2] = Blocks.gravel;
+                                p_150560_3_[i2] = ModBlocks.dirt;
                             }
                             else
                             {

@@ -16,7 +16,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
@@ -139,17 +141,20 @@ public class BlockMultipleBlocks2 extends Block {
     public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata) {
     	return true;
     }
+
     
-    public int getPickDamageValue(World par1World, int par2, int par3, int par4) {
-        int meta = par1World.getBlockMetadata(par2, par3, par4);
-        if(meta == 1) {
-        	return meta - 1;
-        }
-    	return par1World.getBlockMetadata(par2, par3, par4);
+    @Override
+    public ItemStack getPickBlock(MovingObjectPosition target, World world, int x, int y, int z, EntityPlayer player) {
+    	int meta = world.getBlockMetadata(x, y, z);
+        if(meta == 1) 
+        	meta -= 1;
+
+    	return new ItemStack(this, 1, meta);
     }
     
-    public boolean isBeaconBase(World worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ) {
-    	int meta = worldObj.getBlockMetadata(x, y, z);
+    @Override
+    public boolean isBeaconBase(IBlockAccess world, int x, int y, int z, int beaconX, int beaconY, int beaconZ) {
+    	int meta = world.getBlockMetadata(x, y, z);
     	if(meta == 9) {
     		return true;
     	}
