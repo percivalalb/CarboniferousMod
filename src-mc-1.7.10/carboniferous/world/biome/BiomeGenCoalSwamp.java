@@ -29,6 +29,7 @@ public class BiomeGenCoalSwamp extends BiomeGenBaseCarboniferous {
         this.spawnableCreatureList.add(new SpawnListEntry(EntityCrab.class, 7, 3, 6));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityDimetrodon.class, 14, 1, 2));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOrthacanthus.class, 27, 1, 3));
+        this.getBiomeDecorator().coralPerChunk = 2;
     }
 
 	@Override

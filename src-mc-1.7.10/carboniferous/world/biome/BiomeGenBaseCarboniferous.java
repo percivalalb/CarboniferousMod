@@ -23,11 +23,12 @@ public class BiomeGenBaseCarboniferous extends BiomeGenBase {
 	protected static final BiomeGenBase.Height height_carboniferous_river = new BiomeGenBase.Height(-0.5F, 0.0F);
 	protected static final BiomeGenBase.Height height_carboniferous_ocean = new BiomeGenBase.Height(-1.5F, 0.0F);
 	protected static final BiomeGenBase.Height height_calamites_swamp = new BiomeGenBase.Height(-0.15F, 0.15F);
-	protected static final BiomeGenBase.Height height_highlands = new BiomeGenBase.Height(1.5F, 0.5F);
+	protected static final BiomeGenBase.Height height_highlands = new BiomeGenBase.Height(4F, 0.3F);
 	protected static final BiomeGenBase.Height height_island = new BiomeGenBase.Height(-0.2F, 0.6F);
 	protected static final BiomeGenBase.Height height_coal_swamp = new BiomeGenBase.Height(-0.05F, 0.15F);
 	protected static final BiomeGenBase.Height height_rainforest = new BiomeGenBase.Height(0.25F, 0.25F);
 	protected static final BiomeGenBase.Height height_bog = new BiomeGenBase.Height(0.0F, 0.4F);
+	protected static final BiomeGenBase.Height height_icesheet = new BiomeGenBase.Height(0.1F, 0.0F);
 	
 	public static final BiomeGenBase carboniferousRiver = new BiomeGenRiverCarboniferous(Properties.BIOME_ID_RIVER);
 	public static final BiomeGenBase carboniferousOcean = new BiomeGenOceanCarboniferous(Properties.BIOME_ID_OCEAN);
@@ -38,9 +39,10 @@ public class BiomeGenBaseCarboniferous extends BiomeGenBase {
 	public static final BiomeGenBase coalSwamp = new BiomeGenCoalSwamp(Properties.BIOME_ID_COALSWAMP);
 	public static final BiomeGenBase rainforest = new BiomeGenRainforest(Properties.BIOME_ID_RAINFOREST);
 	public static final BiomeGenBase bog = new BiomeGenBog(Properties.BIOME_ID_BOG);
+	public static final BiomeGenBase icesheet = new BiomeGenIceSheet(Properties.BIOME_ID_ICE_SHEET);
 
-	public BiomeGenBaseCarboniferous(int par1) {
-		super(par1);
+	public BiomeGenBaseCarboniferous(int id) {
+		super(id);
 		this.theBiomeDecorator = new BiomeDecoratorCarboniferous();
 		this.topBlock = ModBlocks.grass;
         this.fillerBlock = ModBlocks.dirt;
@@ -72,8 +74,7 @@ public class BiomeGenBaseCarboniferous extends BiomeGenBase {
     }
     
     @Override
-    public void genTerrainBlocks(World p_150560_1_, Random p_150560_2_, Block[] p_150560_3_, byte[] p_150560_4_, int p_150560_5_, int p_150560_6_, double p_150560_7_)
-    {
+    public void genTerrainBlocks(World p_150560_1_, Random p_150560_2_, Block[] p_150560_3_, byte[] p_150560_4_, int p_150560_5_, int p_150560_6_, double p_150560_7_) {
         boolean flag = true;
         Block block = this.topBlock;
         byte b0 = (byte)(this.field_150604_aj & 255);

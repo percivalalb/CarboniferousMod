@@ -4,6 +4,7 @@ import java.util.Random;
 
 import carboniferous.CarboniferousMod;
 import carboniferous.api.Properties;
+import carboniferous.network.PacketDispatcher;
 import carboniferous.network.packet.PacketTeleport;
 import carboniferous.world.TeleporterCarboniferous;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -41,7 +42,7 @@ public class TeleportServer {
                 	dimension = 0;
                 }
                 
-                CarboniferousMod.NETWORK_MANAGER.sendPacketToPlayer(new PacketTeleport(), player);
+                PacketDispatcher.sendTo(new PacketTeleport(), player);
                 player.mcServer.getConfigurationManager().transferPlayerToDimension(player, dimension, new TeleporterCarboniferous(player.mcServer.worldServerForDimension(dimension)));
 
             }

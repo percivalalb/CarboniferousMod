@@ -122,7 +122,8 @@ public class CreativeTabCarboniferous extends CreativeTabs {
 		par1List.add(new ItemStack(ModItems.amphibianSkinBoot, 1, 0));
 		par1List.add(new ItemStack(ModItems.flippers, 1, 0));
 		par1List.add(new ItemStack(ModItems.net, 1, 0));
-		//par1List.add(new ItemStack(ModItems.quiver, 1, 0));
+		par1List.add(new ItemStack(ModItems.egg, 1, 0));
+		par1List.add(new ItemStack(ModItems.egg, 1, 1));
 		for(int var1 = 0; var1 <= 13; ++var1) {
 			if(var1 == 5 || var1 == 0) continue;
  			par1List.add(new ItemStack(ModItems.multiItems, 1, var1));

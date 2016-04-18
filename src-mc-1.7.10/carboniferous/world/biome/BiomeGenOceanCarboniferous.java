@@ -16,6 +16,7 @@ public class BiomeGenOceanCarboniferous extends BiomeGenBaseCarboniferous {
         this.spawnableWaterCreatureList.add(new SpawnListEntry(EntityBrachiopod.class, 30, 4, 4));
         this.spawnableWaterCreatureList.add(new SpawnListEntry(EntityAmmonite.class, 30, 4, 4));
         this.setBiomeName("Carboniferous Ocean");
+        this.getBiomeDecorator().coralPerChunk = 6;
     }
 
 	@Override

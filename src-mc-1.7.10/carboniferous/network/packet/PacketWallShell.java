@@ -4,16 +4,20 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import carboniferous.network.IPacket;
+import carboniferous.network.AbstractMessage.AbstractClientMessage;
 import carboniferous.tileentity.TileEntityWallShell;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
+import cpw.mods.fml.relauncher.Side;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.network.PacketBuffer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
 /**
  * @author ProPercivalalb
  **/
-public class PacketWallShell extends IPacket {
+public class PacketWallShell extends AbstractClientMessage {
 
 	public int x, y, z;
 	public String shell;
@@ -29,25 +33,25 @@ public class PacketWallShell extends IPacket {
 	}
 
 	@Override
-	public void read(DataInputStream data) throws IOException {
-		this.x = data.readInt();
-		this.y = data.readInt();
-		this.z = data.readInt();
-		this.shell = data.readUTF();
-		this.meta = data.readInt();
+	public void read(PacketBuffer buffer) throws IOException {
+		this.x = buffer.readInt();
+		this.y = buffer.readInt();
+		this.z = buffer.readInt();
+		this.shell = buffer.readStringFromBuffer(1000);
+		this.meta = buffer.readInt();
 	}
 
 	@Override
-	public void write(DataOutputStream data) throws IOException {
-		data.writeInt(this.x);
-		data.writeInt(this.y);
-		data.writeInt(this.z);
-		data.writeUTF(this.shell);
-		data.writeInt(this.meta);
+	public void write(PacketBuffer buffer) throws IOException {
+		buffer.writeInt(this.x);
+		buffer.writeInt(this.y);
+		buffer.writeInt(this.z);
+		buffer.writeStringToBuffer(this.shell);
+		buffer.writeInt(this.meta);
 	}
 
 	@Override
-	public void execute(EntityPlayer player) {
+	public void process(EntityPlayer player, Side side) {
 		World world = player.worldObj;
 		
 		TileEntity tileEntity = world.getTileEntity(this.x, this.y, this.z);
@@ -57,5 +61,5 @@ public class PacketWallShell extends IPacket {
 			wallShell.setShell(this.shell, this.meta);
 		}
 	}
-
+	
 }

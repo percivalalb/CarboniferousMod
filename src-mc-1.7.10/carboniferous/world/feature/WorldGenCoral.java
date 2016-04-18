@@ -14,7 +14,7 @@ public class WorldGenCoral extends WorldGeneratorCarboniferous {
 	
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z) {
-		if(y > 54) return false;
+		//if(y > 54) return false;
 		if(getBlockIfChunkExists(world, x, y, z) == Blocks.water && 
 				getBlockIfChunkExists(world, x, y + 1, z) == Blocks.water && 
 				ModBlocks.coral.canBlockStay(world, x, y, z)) {

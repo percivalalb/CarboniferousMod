@@ -5,6 +5,9 @@ import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.Packet;
 import net.minecraft.tileentity.TileEntity;
 import carboniferous.lib.Reference;
+import carboniferous.network.packet.PacketGrindSound;
+import carboniferous.network.packet.PacketTeleport;
+import carboniferous.network.packet.PacketWallShell;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;
@@ -24,7 +27,9 @@ public class PacketDispatcher {
 	private static final SimpleNetworkWrapper dispatcher = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.CHANNEL_NAME);
 
 	public static final void registerPackets() {
-		//registerMessage(CommandMessage.class);
+		registerMessage(PacketGrindSound.class);
+		registerMessage(PacketTeleport.class);
+		registerMessage(PacketWallShell.class);
 		
 	}
 	

@@ -121,6 +121,7 @@ item.carbon.huntersBow.name=Hunters Bow
 item.carbon.rawAnt.name=Ant
 item.carbon.cookedAnt.name=Cooked Ant
 item.carbon.quiver.name=Quiver
+item.carbon.egg.name=Egg
 
 container.grinder=Grinder
 itemGroup.carboniferous=Carboniferous Mod

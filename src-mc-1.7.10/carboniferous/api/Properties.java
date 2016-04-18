@@ -86,6 +86,7 @@ public class Properties {
 	public static int BIOME_ID_OCEAN = 175;
 	public static int BIOME_ID_COALSWAMP = 176;
 	public static int BIOME_ID_BOG = 177;
+	public static int BIOME_ID_ICE_SHEET = 178;
 	
 	//ID'S
 	public static int dimensionID = 76;

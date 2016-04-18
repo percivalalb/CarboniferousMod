@@ -9,14 +9,13 @@ import net.minecraft.world.gen.layer.GenLayerSmooth;
 import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
 import net.minecraft.world.gen.layer.GenLayerZoom;
 
-public class GenLayerCarboniferous
-{
+public class GenLayerCarboniferous {
+	
     public static GenLayer[] createDim(long var0, WorldType var2) {
         byte var3 = 4;
 
-        if (var2 == WorldType.LARGE_BIOMES) {
+        if(var2 == WorldType.LARGE_BIOMES)
             var3 = 6;
-        }
 
         GenLayerCarboniferousBiomes var4 = new GenLayerCarboniferousBiomes(200L);
         GenLayerFuzzyZoom var8 = new GenLayerFuzzyZoom(2000L, var4);

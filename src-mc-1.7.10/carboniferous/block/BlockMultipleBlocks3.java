@@ -24,6 +24,7 @@ public class BlockMultipleBlocks3 extends Block {
 	public static IIcon meteoriteLightOre;
 	public static IIcon meteoriteRedOre;
 	public static IIcon basaltEncrustedDiamond;
+	public static IIcon graniteCoal;
 	
 	public BlockMultipleBlocks3() {
         super(Material.rock);
@@ -53,6 +54,7 @@ public class BlockMultipleBlocks3 extends Block {
 		case 1: return this.meteoriteLightOre;
 		case 2: return this.meteoriteRedOre;
 		case 3: return this.basaltEncrustedDiamond;
+		case 4: return this.graniteCoal;
 		default: return null;
 		}
     }
@@ -63,10 +65,12 @@ public class BlockMultipleBlocks3 extends Block {
         this.meteoriteLightOre = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "meteoriteLightOre"); //1
         this.meteoriteRedOre = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "meteoriteRedOre"); //2
         this.basaltEncrustedDiamond = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "basaltEncrustedDiamond"); //3
+        this.graniteCoal = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "oreCoal"); //3
     }
+    
     @Override
     public int damageDropped(int meta) {
-    	if(meta == 3)
+    	if(meta == 3 || meta == 4)
     		return 0;
     	
     	return meta;
@@ -77,16 +81,14 @@ public class BlockMultipleBlocks3 extends Block {
     	if(meta == 3)
     		return Items.diamond;
     	
+    	if(meta == 4)
+    		return Items.coal;
+    	
     	return super.getItemDropped(meta, random, fortune);
     }
     
     @Override
     public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata) {
     	return true;
-    }
-
-    public boolean isBeaconBase(World worldObj, int x, int y, int z, int beaconX, int beaconY, int beaconZ) {
-    	int meta = worldObj.getBlockMetadata(x, y, z);
-    	return false;
     }
 }

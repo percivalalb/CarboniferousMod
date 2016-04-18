@@ -2,6 +2,7 @@ package carboniferous.tileentity;
 
 import com.google.common.base.Strings;
 
+import carboniferous.network.PacketDispatcher;
 import carboniferous.network.packet.PacketWallShell;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NBTTagCompound;
@@ -18,7 +19,7 @@ public class TileEntityWallShell extends TileEntity {
 	
 	@Override
     public Packet getDescriptionPacket() {
-    	return new PacketWallShell(this.xCoord, this.yCoord, this.zCoord, this.shell, this.shellMeta).getPacket();
+    	return PacketDispatcher.getPacket(new PacketWallShell(this.xCoord, this.yCoord, this.zCoord, this.shell, this.shellMeta));
     }
 	
 	@Override

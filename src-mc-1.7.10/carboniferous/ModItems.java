@@ -3,6 +3,7 @@ package carboniferous;
 import carboniferous.item.ItemAmphibianSkin;
 import carboniferous.item.ItemAnt;
 import carboniferous.item.ItemCustomFood;
+import carboniferous.item.ItemEggs;
 import carboniferous.item.ItemFlippers;
 import carboniferous.item.ItemGrindingStones;
 import carboniferous.item.ItemHuntersBow;
@@ -32,6 +33,7 @@ public class ModItems {
 	public static Item rawAmphibian;
 	public static Item cookedAmphibian;
 	public static Item quiver;
+	public static Item egg;
 	
 	public static Item net;
 	
@@ -53,6 +55,7 @@ public class ModItems {
 		cookedAmphibian = new ItemCustomFood(6, 1.1F, true).setUnlocalizedName("carbon.cookedAmphibian");
 		quiver = new ItemQuiver(CarboniferousMod.proxy.armorRender("carbon.quiver")).setUnlocalizedName("carbon.quiver");	
 		net = new ItemNet().setUnlocalizedName("carbon.net");
+		egg = new ItemEggs().setUnlocalizedName("carbon.egg");
 		
 		GameRegistry.registerItem(flippers, "flippers");
 		GameRegistry.registerItem(multiItems, "multiitems");
@@ -70,5 +73,6 @@ public class ModItems {
 		GameRegistry.registerItem(cookedAmphibian, "cookedamphibian");
 		GameRegistry.registerItem(quiver, "quiver");
 		GameRegistry.registerItem(net, "net");
+		GameRegistry.registerItem(egg, "egg");
 	}	
 }

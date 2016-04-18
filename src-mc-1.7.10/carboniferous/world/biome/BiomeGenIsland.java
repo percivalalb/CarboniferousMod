@@ -28,6 +28,7 @@ public class BiomeGenIsland extends BiomeGenBaseCarboniferous {
         this.spawnableWaterCreatureList.add(new SpawnListEntry(EntityBrachiopod.class, 30, 4, 4));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityCrab.class, 32, 5, 7));
         this.spawnableWaterCreatureList.add(new SpawnListEntry(EntityOrthacanthus.class, 32, 2, 4));
+        this.getBiomeDecorator().coralPerChunk = 2;
     }
 
 	@Override

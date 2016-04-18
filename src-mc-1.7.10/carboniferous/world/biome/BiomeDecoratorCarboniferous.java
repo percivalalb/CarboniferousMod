@@ -52,6 +52,7 @@ public class BiomeDecoratorCarboniferous extends BiomeDecorator {
 	    this.diamondGen = new WorldGenMinable(ModBlocks.multiBlock1, 10, 10, ModBlocks.multiBlock1);
 	    this.hermiteGen = new WorldGenMinable(ModBlocks.multiBlock1, 12, 5, ModBlocks.multiBlock1);
 	    this.pyriteGen = new WorldGenMinable(ModBlocks.multiBlock1, 13, 2, ModBlocks.multiBlock1);
+	    this.coalGen = new WorldGenMinable(ModBlocks.multiBlock3, 4, 15, ModBlocks.multiBlock1);
 	    this.antHillGen = new WorldGenAntHill(true);
 	    this.sandGen = new WorldGenSand(ModBlocks.sand, 5);
 	    this.volcanoGen = new WorldGenVolcano(true);
@@ -94,19 +95,13 @@ public class BiomeDecoratorCarboniferous extends BiomeDecorator {
 	
 	@Override
 	protected void generateOres() {
-		MinecraftForge.ORE_GEN_BUS.post(new OreGenEvent.Pre(currentWorld, randomGenerator, chunk_X, chunk_Z));
-	    if (TerrainGen.generateOre(currentWorld, randomGenerator, limestoneGen, chunk_X, chunk_Z, CUSTOM))
-	    this.genStandardOre1(20, limestoneGen, 0, 128);
-		if (TerrainGen.generateOre(currentWorld, randomGenerator, dirtGen, chunk_X, chunk_Z, DIRT))
-	    this.genStandardOre1(15, this.dirtGen, 0, 128);
-	    if (TerrainGen.generateOre(currentWorld, randomGenerator, goldGen, chunk_X, chunk_Z, GOLD))
+	    this.genStandardOre1(20, this.limestoneGen, 0, 128);
+	    this.genStandardOre1(10, this.dirtGen, 0, 128);
+	    this.genStandardOre1(40, this.coalGen, 1, 128);
 	    this.genStandardOre1(2, this.goldGen, 0, 32);
-	    if (TerrainGen.generateOre(currentWorld, randomGenerator, diamondGen, chunk_X, chunk_Z, DIAMOND))
-	    this.genStandardOre1(1, this.diamondGen, 0, 18);
-	    if (TerrainGen.generateOre(currentWorld, randomGenerator, hermiteGen, chunk_X, chunk_Z, CUSTOM))
-		this.genStandardOre1(27, hermiteGen, 30, 60);
-	    if (TerrainGen.generateOre(currentWorld, randomGenerator, pyriteGen, chunk_X, chunk_Z, CUSTOM))
-		this.genStandardOre1(20, pyriteGen, 1, 52);
-	    MinecraftForge.ORE_GEN_BUS.post(new OreGenEvent.Post(currentWorld, randomGenerator, chunk_X, chunk_Z));
+	    this.genStandardOre1(3, this.diamondGen, 0, 18);
+		this.genStandardOre1(27, this.hermiteGen, 30, 60);
+		this.genStandardOre1(20, this.pyriteGen, 1, 52);
+		
     }
 }

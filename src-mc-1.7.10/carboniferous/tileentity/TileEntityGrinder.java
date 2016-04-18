@@ -2,6 +2,7 @@ package carboniferous.tileentity;
 
 import carboniferous.CarboniferousMod;
 import carboniferous.core.helper.ItemStackHelper;
+import carboniferous.network.PacketDispatcher;
 import carboniferous.network.packet.PacketGrindSound;
 import carboniferous.recipe.CarboniferousRecipes;
 import carboniferous.recipe.GrinderManager;
@@ -233,7 +234,7 @@ public class TileEntityGrinder extends TileEntity implements ISidedInventory {
 	            ++this.grindTime;
 	            this.damageGrindingStone(1);
 	            if(this.grindTime % 20 == 18) {
-	            	CarboniferousMod.NETWORK_MANAGER.sendPacketToAllAround(new PacketGrindSound(this.xCoord, this.yCoord, this.zCoord), this.worldObj.provider.dimensionId, this.xCoord, this.yCoord, this.zCoord, 30D);
+	            	PacketDispatcher.sendToAllAround(new PacketGrindSound(this.xCoord, this.yCoord, this.zCoord), this.worldObj.provider.dimensionId, this.xCoord, this.yCoord, this.zCoord, 30D);
 	            }
 	            if (this.grindTime >= defaultGrindSpeed) {
 	                this.grindTime = 0;

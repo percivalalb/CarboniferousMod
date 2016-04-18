@@ -1,5 +1,6 @@
 package carboniferous.block;
 
+import carboniferous.ModBlocks;
 import carboniferous.api.IconReference;
 import carboniferous.api.Properties;
 import cpw.mods.fml.relauncher.Side;
@@ -59,7 +60,7 @@ public class BlockCoral extends BlockFlower {
     }
 	
 	protected boolean canThisPlantGrowOnThisBlock(Block par1) {
-	    return par1 == this || par1 == Blocks.grass || par1 == Blocks.dirt || par1 == Blocks.farmland;
+	    return par1 == this || par1 == ModBlocks.grass || par1 == ModBlocks.dirt || par1 == ModBlocks.tilledEarth;
 	}
 	
 	@Override

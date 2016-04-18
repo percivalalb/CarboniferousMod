@@ -31,7 +31,6 @@ import carboniferous.core.helper.VersionHelper.UpdateType;
 import carboniferous.core.proxy.CommonProxy;
 import carboniferous.creativetab.CreativeTabCarboniferous;
 import carboniferous.lib.Reference;
-import carboniferous.network.NetworkManager;
 import carboniferous.network.PacketDispatcher;
 import carboniferous.world.WorldProviderCarboniferous;
 import carboniferous.world.biome.BiomeGenBaseCarboniferous;
@@ -65,7 +64,6 @@ public class CarboniferousMod {
 	
 	public static CreativeTabs tabsCarboniferous = new CreativeTabCarboniferous();
 	
-	public static NetworkManager NETWORK_MANAGER;
 	public ConnectionHandler serverTeleport;
 	
 	@EventHandler
@@ -115,7 +113,6 @@ public class CarboniferousMod {
         //Register the Connection Handler
     	FMLCommonHandler.instance().bus().register(serverTeleport = new ConnectionHandler());
         //Register the Mod Packets
-     	NETWORK_MANAGER = new NetworkManager();
      	PacketDispatcher.registerPackets();
      	
         //Register Action Handler

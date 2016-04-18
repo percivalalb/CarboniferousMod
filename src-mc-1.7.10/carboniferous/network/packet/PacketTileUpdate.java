@@ -4,26 +4,34 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import carboniferous.network.IPacket;
+import carboniferous.network.AbstractMessage.AbstractClientMessage;
+import cpw.mods.fml.common.network.simpleimpl.IMessage;
+import cpw.mods.fml.common.network.simpleimpl.MessageContext;
+import cpw.mods.fml.relauncher.Side;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.network.PacketBuffer;
 
 /**
  * @author ProPercivalalb
  **/
-public class PacketTileUpdate extends IPacket {
+public class PacketTileUpdate extends AbstractClientMessage {
+
 
 	@Override
-	public void read(DataInputStream data) throws IOException {
+	protected void read(PacketBuffer buffer) throws IOException {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void write(DataOutputStream data) throws IOException {
+	protected void write(PacketBuffer buffer) throws IOException {
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void execute(EntityPlayer player) {
+	public void process(EntityPlayer player, Side side) {
+		// TODO Auto-generated method stub
 		
 	}
 
