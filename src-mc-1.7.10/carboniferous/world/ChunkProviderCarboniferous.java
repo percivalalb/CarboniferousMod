@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Random;
 
 import carboniferous.ModBlocks;
+import carboniferous.world.biome.BiomeGenBaseCarboniferous;
+import carboniferous.world.feature.WorldGenCarboniferousLakes;
 import cpw.mods.fml.common.eventhandler.Event.Result;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
@@ -212,18 +214,13 @@ public class ChunkProviderCarboniferous implements IChunkProvider
         }
     }
 
-    /**
-     * loads or generates the chunk at the chunk location specified
-     */
+    @Override
     public Chunk loadChunk(int par1, int par2)
     {
         return this.provideChunk(par1, par2);
     }
 
-    /**
-     * Will return back a chunk, if it doesn't exist and its not a MP client it will generates all the blocks for the
-     * specified chunk from the map seed and chunk seed
-     */
+    @Override
     public Chunk provideChunk(int par1, int par2)
     {
         this.rand.setSeed((long)par1 * 341873128712L + (long)par2 * 132897987541L);
@@ -244,9 +241,7 @@ public class ChunkProviderCarboniferous implements IChunkProvider
         byte[] abyte1 = chunk.getBiomeArray();
 
         for (int k = 0; k < abyte1.length; ++k)
-        {
             abyte1[k] = (byte)this.biomesForGeneration[k].biomeID;
-        }
 
         chunk.generateSkylightMap();
         return chunk;
@@ -374,17 +369,13 @@ public class ChunkProviderCarboniferous implements IChunkProvider
         }
     }
 
-    /**
-     * Checks to see if a chunk exists at x, y
-     */
+    @Override
     public boolean chunkExists(int par1, int par2)
     {
         return true;
     }
 
-    /**
-     * Populates chunk with ores etc etc
-     */
+    @Override
     public void populate(IChunkProvider par1IChunkProvider, int par2, int par3)
     {
         BlockFalling.fallInstantly = true;
@@ -408,13 +399,13 @@ public class ChunkProviderCarboniferous implements IChunkProvider
         int l1;
         int i2;
 
-        if (biomegenbase != BiomeGenBase.desert && biomegenbase != BiomeGenBase.desertHills && !flag && this.rand.nextInt(4) == 0
+        if (biomegenbase != BiomeGenBaseCarboniferous.icesheet && !flag && this.rand.nextInt(4) == 0
             && TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAKE))
         {
             k1 = k + this.rand.nextInt(16) + 8;
             l1 = this.rand.nextInt(256);
             i2 = l + this.rand.nextInt(16) + 8;
-            (new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, k1, l1, i2);
+            (new WorldGenCarboniferousLakes(Blocks.water)).generate(this.worldObj, this.rand, k1, l1, i2);
         }
 
         if (TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAVA) && !flag && this.rand.nextInt(8) == 0)
@@ -425,18 +416,19 @@ public class ChunkProviderCarboniferous implements IChunkProvider
 
             if (l1 < 63 || this.rand.nextInt(10) == 0)
             {
-                (new WorldGenLakes(Blocks.lava)).generate(this.worldObj, this.rand, k1, l1, i2);
+                (new WorldGenCarboniferousLakes(Blocks.lava)).generate(this.worldObj, this.rand, k1, l1, i2);
             }
         }
 
         boolean doGen = TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, DUNGEON);
+       /**
         for (k1 = 0; doGen && k1 < 8; ++k1)
         {
             l1 = k + this.rand.nextInt(16) + 8;
             i2 = this.rand.nextInt(256);
             int j2 = l + this.rand.nextInt(16) + 8;
             (new WorldGenDungeons()).generate(this.worldObj, this.rand, l1, i2, j2);
-        }
+        }**/
 
         biomegenbase.decorate(this.worldObj, this.rand, k, l);
         if (TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, ANIMALS))
@@ -485,49 +477,44 @@ public class ChunkProviderCarboniferous implements IChunkProvider
      */
     public void saveExtraData() {}
 
-    /**
-     * Unloads chunks that are marked to be unloaded. This is not guaranteed to unload every such chunk.
-     */
+    @Override
     public boolean unloadQueuedChunks()
     {
         return false;
     }
 
-    /**
-     * Returns if the IChunkProvider supports saving.
-     */
+    @Override
     public boolean canSave()
     {
         return true;
     }
 
-    /**
-     * Converts the instance data to a readable string.
-     */
+    @Override
     public String makeString()
     {
         return "RandomLevelSource";
     }
 
-    /**
-     * Returns a list of creatures of the specified type that can spawn at the given location.
-     */
+    @Override
     public List getPossibleCreatures(EnumCreatureType par1EnumCreatureType, int par2, int par3, int par4)
     {
         BiomeGenBase biomegenbase = this.worldObj.getBiomeGenForCoords(par2, par4);
         return par1EnumCreatureType == EnumCreatureType.monster && this.scatteredFeatureGenerator.func_143030_a(par2, par3, par4) ? this.scatteredFeatureGenerator.getScatteredFeatureSpawnList() : biomegenbase.getSpawnableList(par1EnumCreatureType);
     }
 
+    @Override
     public ChunkPosition func_147416_a(World p_147416_1_, String p_147416_2_, int p_147416_3_, int p_147416_4_, int p_147416_5_)
     {
         return null;
     }
 
+    @Override
     public int getLoadedChunkCount()
     {
         return 0;
     }
 
+    @Override
     public void recreateStructures(int par1, int par2)
     {
         if (this.mapFeaturesEnabled)

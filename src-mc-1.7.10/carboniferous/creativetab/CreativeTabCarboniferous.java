@@ -51,7 +51,7 @@ public class CreativeTabCarboniferous extends CreativeTabs {
 		for(int var1 = 0; var1 <= 14; ++var1) {
         	par1List.add(new ItemStack(ModBlocks.multiBlock1, 1, var1));
         	if(var1 == 1)par1List.add(new ItemStack(ModBlocks.multiBlock2, 1, 13));
-        	if(var1 == 9) par1List.add(new ItemStack(ModBlocks.multiBlock2, 1, 6));
+        	if(var1 == 9) { par1List.add(new ItemStack(ModBlocks.multiBlock2, 1, 6)); par1List.add(new ItemStack(ModBlocks.multiBlock3, 1, 4)); }
         	if(var1 == 14) par1List.add(new ItemStack(ModBlocks.multiBlock2, 1, 8));
         	if(var1 == 14) par1List.add(new ItemStack(ModBlocks.multiBlock2, 1, 9));
         }

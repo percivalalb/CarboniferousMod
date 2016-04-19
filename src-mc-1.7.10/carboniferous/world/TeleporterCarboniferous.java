@@ -117,7 +117,7 @@ public class TeleporterCarboniferous extends Teleporter {
 	            {
 	                double d3 = ((double)j3 + 0.5D) - entity.posZ;
 	                worldObj.getClass();
-	                for (int k4 = 127; k4 >= 0; k4--)
+	                for (int k4 = 165; k4 >= 0; k4--)
 	                {
 	                    if (!worldObj.isAirBlock(i2, k4, j3))
 	                    {

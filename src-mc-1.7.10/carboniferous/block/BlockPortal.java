@@ -38,6 +38,7 @@ public class BlockPortal extends BlockBreakable {
 	public BlockPortal(String par2Str) {
 		super(par2Str, Material.portal, false);
 		this.setCreativeTab(null);
+		this.setBlockBounds(0.2F, 0.0F, 0.2F, 0.8F, 1.0F, 0.8F);
 	}
 
 	@Override
