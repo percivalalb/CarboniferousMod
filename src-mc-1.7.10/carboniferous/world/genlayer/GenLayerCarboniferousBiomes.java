@@ -3,6 +3,7 @@ package carboniferous.world.genlayer;
 import java.util.ArrayList;
 import java.util.List;
 
+import carboniferous.api.CarboniferousApi;
 import carboniferous.world.biome.BiomeGenBaseCarboniferous;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.layer.GenLayer;
@@ -34,13 +35,16 @@ public class GenLayerCarboniferousBiomes extends GenLayer {
         for (int var6 = 0; var6 < var4; ++var6) {
             for (int var7 = 0; var7 < var3; ++var7) {
                 this.initChunkSeed((long)(var7 + var1), (long)(var6 + var2));
-                if(nextInt(12) == 0) {
+                if(nextInt(8) == 0) {
                 	var5[var7 + var6 * var3] = BiomeGenBaseCarboniferous.carboniferousOcean.biomeID;
                 }
-                else if(nextInt(10) == 0) {
+                else if(nextInt(6) == 0) {
                 	var5[var7 + var6 * var3] = BiomeGenBaseCarboniferous.rainforest.biomeID;
                 }
-                else if(nextInt(12) == 0) {
+                else if(nextInt(6) == 0) {
+                	var5[var7 + var6 * var3] = BiomeGenBaseCarboniferous.highlands.biomeID;
+                }
+                else if(nextInt(10) == 0) {
                 	var5[var7 + var6 * var3] = BiomeGenBaseCarboniferous.icesheet.biomeID;
                 }
                 else {

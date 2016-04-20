@@ -156,7 +156,6 @@ public class CarboniferousMod {
 		
 		//Biomes Added to the Carboniferous Dimension
 		CarboniferousApi.registerBiome(BiomeGenBaseCarboniferous.calamitesSwamp);
-		CarboniferousApi.registerBiome(BiomeGenBaseCarboniferous.highlands);
 		CarboniferousApi.registerBiome(BiomeGenBaseCarboniferous.island);
 		CarboniferousApi.registerBiome(BiomeGenBaseCarboniferous.coalSwamp);
 		//CarboniferousApi.registerBiome(BiomeGenBaseCarboniferous.bog);

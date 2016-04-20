@@ -12,10 +12,10 @@ import net.minecraft.world.gen.layer.GenLayerZoom;
 public class GenLayerCarboniferous {
 	
     public static GenLayer[] createDim(long var0, WorldType var2) {
-        byte var3 = 4;
+        byte size = 4;
 
         if(var2 == WorldType.LARGE_BIOMES)
-            var3 = 6;
+            size = 6;
 
         GenLayerCarboniferousBiomes var4 = new GenLayerCarboniferousBiomes(200L);
         GenLayerFuzzyZoom var8 = new GenLayerFuzzyZoom(2000L, var4);
@@ -24,7 +24,7 @@ public class GenLayerCarboniferous {
         var9 = new GenLayerZoom(2003L, var9);
         GenLayer var5 = GenLayerZoom.magnify(1000L, var9, 0);
         GenLayerRiverInit var10 = new GenLayerRiverInit(100L, var5);
-        var5 = GenLayerZoom.magnify(1000L, var10, var3 + 2);
+        var5 = GenLayerZoom.magnify(1000L, var10, size + 2);
         GenLayerRiver var11 = new GenLayerRiver(1L, var5);
         GenLayerSmooth var15 = new GenLayerSmooth(1000L, var11);
         GenLayer var6 = GenLayerZoom.magnify(1000L, var9, 0);
@@ -32,7 +32,7 @@ public class GenLayerCarboniferous {
         var6 = GenLayerZoom.magnify(1000L, var14, 2);
         Object var12 = new GenLayerHills(1000L, var6);
 
-        for (int var7 = 0; var7 < var3; ++var7)
+        for (int var7 = 0; var7 < size; ++var7)
         {
             var12 = new GenLayerZoom(1000L + (long)var7, (GenLayer)var12);
         }

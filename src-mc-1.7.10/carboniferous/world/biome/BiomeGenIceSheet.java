@@ -25,7 +25,6 @@ public class BiomeGenIceSheet extends BiomeGenBaseCarboniferous {
 		this.setBiomeName("Ice Sheet");
 		this.temperature = 0.1F;
 		this.setHeight(BiomeGenBaseCarboniferous.height_icesheet);
-		this.waterColorMultiplier = 0x333300;
 		this.topBlock = Blocks.snow;
 		this.fillerBlock = Blocks.ice;
 		this.spawnableCreatureList.clear();
@@ -34,7 +33,7 @@ public class BiomeGenIceSheet extends BiomeGenBaseCarboniferous {
 	}
 
 	@Override
-	public int getSkyColorByTemp(float par1) {
-        return 26163;
+    public int getSkyColorByTemp(float par1) {
+        return 0x66cc99;
     }
 }

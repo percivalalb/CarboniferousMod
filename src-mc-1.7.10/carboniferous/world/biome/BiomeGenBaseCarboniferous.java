@@ -24,8 +24,8 @@ public class BiomeGenBaseCarboniferous extends BiomeGenBase {
 	protected static final BiomeGenBase.Height height_carboniferous_ocean = new BiomeGenBase.Height(-1.5F, 0.0F);
 	protected static final BiomeGenBase.Height height_calamites_swamp = new BiomeGenBase.Height(-0.15F, 0.15F);
 	protected static final BiomeGenBase.Height height_highlands = new BiomeGenBase.Height(4F, 0.3F);
-	protected static final BiomeGenBase.Height height_island = new BiomeGenBase.Height(-0.2F, 0.6F);
-	protected static final BiomeGenBase.Height height_coal_swamp = new BiomeGenBase.Height(-0.05F, 0.15F);
+	protected static final BiomeGenBase.Height height_island = new BiomeGenBase.Height(-0.4F, 0.5F);
+	protected static final BiomeGenBase.Height height_coal_swamp = new BiomeGenBase.Height(-0.05F, 0.10F);
 	protected static final BiomeGenBase.Height height_rainforest = new BiomeGenBase.Height(0.25F, 0.25F);
 	protected static final BiomeGenBase.Height height_bog = new BiomeGenBase.Height(0.0F, 0.4F);
 	protected static final BiomeGenBase.Height height_icesheet = new BiomeGenBase.Height(0.1F, 0.0F);

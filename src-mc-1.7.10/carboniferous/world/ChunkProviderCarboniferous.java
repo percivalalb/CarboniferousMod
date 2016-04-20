@@ -408,6 +408,7 @@ public class ChunkProviderCarboniferous implements IChunkProvider
             (new WorldGenCarboniferousLakes(Blocks.water)).generate(this.worldObj, this.rand, k1, l1, i2);
         }
 
+        /**
         if (TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAVA) && !flag && this.rand.nextInt(8) == 0)
         {
             k1 = k + this.rand.nextInt(16) + 8;
@@ -418,7 +419,7 @@ public class ChunkProviderCarboniferous implements IChunkProvider
             {
                 (new WorldGenCarboniferousLakes(Blocks.lava)).generate(this.worldObj, this.rand, k1, l1, i2);
             }
-        }
+        }**/
 
         boolean doGen = TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, DUNGEON);
        /**

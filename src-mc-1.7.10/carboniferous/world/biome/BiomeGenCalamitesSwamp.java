@@ -25,6 +25,8 @@ public class BiomeGenCalamitesSwamp extends BiomeGenBaseCarboniferous {
 		this.setHeight(BiomeGenBaseCarboniferous.height_calamites_swamp);
 		this.waterColorMultiplier = 0x333300;
 		this.theBiomeDecorator.treesPerChunk = 6;
+		this.getBiomeDecorator().smallFernPerChunk = 14;
+        this.getBiomeDecorator().coralPerChunk = 2;
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityDendrerpeton.class, 30, 4, 4));
 		this.spawnableWaterCreatureList.add(new SpawnListEntry(EntityAmmonite.class, 30, 4, 4));
 		this.spawnableCreatureList.add(new SpawnListEntry(EntityCrab.class, 10, 3, 6));

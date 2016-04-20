@@ -29,7 +29,8 @@ public class BiomeGenCoalSwamp extends BiomeGenBaseCarboniferous {
         this.spawnableCreatureList.add(new SpawnListEntry(EntityCrab.class, 7, 3, 6));
         this.spawnableCreatureList.add(new SpawnListEntry(EntityDimetrodon.class, 14, 1, 2));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityOrthacanthus.class, 27, 1, 3));
-        this.getBiomeDecorator().coralPerChunk = 2;
+        this.getBiomeDecorator().coralPerChunk = 1;
+        this.getBiomeDecorator().smallFernPerChunk = 8;
     }
 
 	@Override
@@ -39,7 +40,7 @@ public class BiomeGenCoalSwamp extends BiomeGenBaseCarboniferous {
 
 	@Override
     public WorldGenAbstractTree func_150567_a(Random random) {
-        int i = random.nextInt(30);
+        int i = random.nextInt(35);
         if (i <= 6) {
             return (WorldGenAbstractTree)new WorldGenSmallTrees(false);
         }
