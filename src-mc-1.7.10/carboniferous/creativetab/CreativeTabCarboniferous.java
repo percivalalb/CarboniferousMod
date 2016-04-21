@@ -65,8 +65,8 @@ public class CreativeTabCarboniferous extends CreativeTabs {
         	if(var1 == 11) par1List.add(new ItemStack(ModBlocks.multiBlock3, 1, 3));
         	if(var1 == 12) par1List.add(new ItemStack(ModBlocks.multiBlock2, 1, 14));
         }
-		for(int var1 = 0; var1 <= 3; ++var1) {
-			if(var1 == 3) continue;
+		for(int var1 = 0; var1 <= 7; ++var1) {
+			if(var1 == 3 || var1 == 4) continue;
 			par1List.add(new ItemStack(ModBlocks.multiBlock3, 1, var1));
 		}
 		for(int var1 = 0; var1 < 3; ++var1) {
@@ -78,6 +78,7 @@ public class CreativeTabCarboniferous extends CreativeTabs {
 		par1List.add(new ItemStack(ModBlocks.sand, 1, 0));
 		par1List.add(new ItemStack(ModBlocks.clearGlass, 1, 0));
 		par1List.add(new ItemStack(ModBlocks.fern, 1, 0));
+		par1List.add(new ItemStack(ModBlocks.giantFern, 1, 0));
 		par1List.add(new ItemStack(ModBlocks.vines, 1, 0));
 		for(int var1 = 0; var1 <= 4; ++var1) {
         	par1List.add(new ItemStack(ModBlocks.coral, 1, var1));

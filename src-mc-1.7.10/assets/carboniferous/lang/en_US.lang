@@ -15,6 +15,7 @@ tile.carbon.sand.name=Sand
 tile.carbon.clearGlass.name=Clear Glass
 tile.carbon.vine.name=Vines
 tile.carbon.tallgrass.name=Fern
+tile.carbon.giantFern.name=Giant Fern
 tile.carbon.compressor.name=Compressor (WIP)
 tile.carbon.tilledDirt.name=Tilled Earth
 tile.carbon.multiBlock1.0.name=Granite
@@ -52,7 +53,8 @@ tile.carbon.multiBlock3.0.name=Meteorite Block
 tile.carbon.multiBlock3.1.name=Meteorite Light Ore
 tile.carbon.multiBlock3.2.name=Meteorite Red Ore
 tile.carbon.multiBlock3.3.name=Basalt Encrusted Diamond
-
+tile.carbon.multiBlock3.4.name=Coal Ore
+tile.carbon.multiBlock3.5.name=Shale
 tile.carbon.wood.0.name=Lepidodendron Wood
 tile.carbon.wood.1.name=Calamites Wood
 tile.carbon.wood.2.name=Cordaites Wood
@@ -121,6 +123,7 @@ item.carbon.huntersBow.name=Hunters Bow
 item.carbon.rawAnt.name=Ant
 item.carbon.cookedAnt.name=Cooked Ant
 item.carbon.quiver.name=Quiver
+item.carbon.egg.name=Egg
 
 container.grinder=Grinder
 itemGroup.carboniferous=Carboniferous Mod

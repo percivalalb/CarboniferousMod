@@ -74,6 +74,7 @@ public class TileEntityGrinderRender extends TileEntitySpecialRenderer {
         }
         GL11.glPopMatrix();
         GL11.glPopMatrix();
+
     }
 
     public void renderTileEntityAt(TileEntity var1, double var2, double var4, double var6, float var8)

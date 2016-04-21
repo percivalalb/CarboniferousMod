@@ -27,6 +27,9 @@ public class BlockMultipleBlocks3 extends Block {
 	public static IIcon meteoriteRedOre;
 	public static IIcon basaltEncrustedDiamond;
 	public static IIcon graniteCoal;
+	public static IIcon shale1;
+	public static IIcon shale2;
+	public static IIcon shale3;
 	
 	public BlockMultipleBlocks3() {
         super(Material.rock);
@@ -57,6 +60,7 @@ public class BlockMultipleBlocks3 extends Block {
 		case 2: return this.meteoriteRedOre;
 		case 3: return this.basaltEncrustedDiamond;
 		case 4: return this.graniteCoal;
+		case 5: return this.shale1;
 		default: return null;
 		}
     }
@@ -67,7 +71,8 @@ public class BlockMultipleBlocks3 extends Block {
         this.meteoriteLightOre = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "meteoriteLightOre"); //1
         this.meteoriteRedOre = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "meteoriteRedOre"); //2
         this.basaltEncrustedDiamond = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "basaltEncrustedDiamond"); //3
-        this.graniteCoal = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "oreCoal"); //3
+        this.graniteCoal = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "oreCoal"); //4
+        this.shale1 = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "shale"); //5
     }
     
     @Override

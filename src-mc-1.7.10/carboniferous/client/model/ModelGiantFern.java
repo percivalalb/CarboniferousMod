@@ -1,0 +1,212 @@
+package carboniferous.client.model;
+
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelRenderer;
+
+public class ModelGiantFern extends ModelBase
+{
+  //fields
+    ModelRenderer leafL1;
+    ModelRenderer leafL3;
+    ModelRenderer leftL2;
+    ModelRenderer leftL4;
+    ModelRenderer leftL5;
+    ModelRenderer leftR2;
+    ModelRenderer leftR1;
+    ModelRenderer smallL5;
+    ModelRenderer leftR4;
+    ModelRenderer leftR3;
+    ModelRenderer leftR5;
+    ModelRenderer smallR5;
+    ModelRenderer smallL1;
+    ModelRenderer smallR1;
+    ModelRenderer smallL2;
+    ModelRenderer smallR2;
+    ModelRenderer smallL3;
+    ModelRenderer smallR3;
+    ModelRenderer smallL4;
+    ModelRenderer smallR4;
+    ModelRenderer top;
+    ModelRenderer stem;
+    ModelRenderer base;
+  
+  public ModelGiantFern()
+  {
+    textureWidth = 128;
+    textureHeight = 128;
+    
+      leafL1 = new ModelRenderer(this, 0, 0);
+      leafL1.addBox(0F, 0F, -3F, 10, 1, 3);
+      leafL1.setRotationPoint(0F, 17F, 0F);
+      leafL1.setTextureSize(128, 128);
+      leafL1.mirror = true;
+      setRotation(leafL1, 0.2617994F, 2.513274F, 0.2792527F);
+      leafL3 = new ModelRenderer(this, 0, 0);
+      leafL3.addBox(0F, 0F, -3F, 10, 1, 3);
+      leafL3.setRotationPoint(0F, 17F, 0F);
+      leafL3.setTextureSize(128, 128);
+      leafL3.mirror = true;
+      setRotation(leafL3, 0.2617994F, 5.026548F, 0.1570796F);
+      leftL2 = new ModelRenderer(this, 0, 0);
+      leftL2.addBox(0F, 0F, -3F, 10, 1, 3);
+      leftL2.setRotationPoint(0F, 17F, 0F);
+      leftL2.setTextureSize(128, 128);
+      leftL2.mirror = true;
+      setRotation(leftL2, 0.2617994F, 3.769911F, 0.1570796F);
+      leftL4 = new ModelRenderer(this, 0, 0);
+      leftL4.addBox(0F, 0F, -3F, 10, 1, 3);
+      leftL4.setRotationPoint(0F, 17F, 0F);
+      leftL4.setTextureSize(128, 128);
+      leftL4.mirror = true;
+      setRotation(leftL4, 0.2617994F, 0F, 0.2617994F);
+      leftL5 = new ModelRenderer(this, 0, 0);
+      leftL5.addBox(0F, 0F, -3F, 10, 1, 3);
+      leftL5.setRotationPoint(0F, 17F, 0F);
+      leftL5.setTextureSize(128, 128);
+      leftL5.mirror = true;
+      setRotation(leftL5, 0.2617994F, 1.256637F, 0.1570796F);
+      leftR2 = new ModelRenderer(this, 26, 0);
+      leftR2.addBox(0F, 0F, 0F, 10, 1, 3);
+      leftR2.setRotationPoint(0F, 17F, 0F);
+      leftR2.setTextureSize(128, 128);
+      leftR2.mirror = true;
+      setRotation(leftR2, -0.2617994F, 3.769911F, 0.1570796F);
+      leftR1 = new ModelRenderer(this, 26, 0);
+      leftR1.addBox(0F, 0F, 0F, 10, 1, 3);
+      leftR1.setRotationPoint(0F, 17F, 0F);
+      leftR1.setTextureSize(128, 128);
+      leftR1.mirror = true;
+      setRotation(leftR1, -0.2617994F, 2.513274F, 0.2792527F);
+      smallL5 = new ModelRenderer(this, 0, 5);
+      smallL5.addBox(10F, 0F, -2F, 3, 1, 2);
+      smallL5.setRotationPoint(0F, 17F, 0F);
+      smallL5.setTextureSize(128, 128);
+      smallL5.mirror = true;
+      setRotation(smallL5, 0.2617994F, 1.256637F, 0.1570796F);
+      leftR4 = new ModelRenderer(this, 26, 0);
+      leftR4.addBox(0F, 0F, 0F, 10, 1, 3);
+      leftR4.setRotationPoint(0F, 17F, 0F);
+      leftR4.setTextureSize(128, 128);
+      leftR4.mirror = true;
+      setRotation(leftR4, -0.2617994F, 0F, 0.2617994F);
+      leftR3 = new ModelRenderer(this, 26, 0);
+      leftR3.addBox(0F, 0F, 0F, 10, 1, 3);
+      leftR3.setRotationPoint(0F, 17F, 0F);
+      leftR3.setTextureSize(128, 128);
+      leftR3.mirror = true;
+      setRotation(leftR3, -0.2617994F, 5.026548F, 0.1570796F);
+      leftR5 = new ModelRenderer(this, 26, 0);
+      leftR5.addBox(0F, 0F, 0F, 10, 1, 3);
+      leftR5.setRotationPoint(0F, 17F, 0F);
+      leftR5.setTextureSize(128, 128);
+      leftR5.mirror = true;
+      setRotation(leftR5, -0.2617994F, 1.256637F, 0.1570796F);
+      smallR5 = new ModelRenderer(this, 0, 5);
+      smallR5.addBox(10F, 0F, 0F, 3, 1, 2);
+      smallR5.setRotationPoint(0F, 17F, 0F);
+      smallR5.setTextureSize(128, 128);
+      smallR5.mirror = true;
+      setRotation(smallR5, -0.2617994F, 1.256637F, 0.1570796F);
+      smallL1 = new ModelRenderer(this, 0, 5);
+      smallL1.addBox(10F, 0F, -2F, 3, 1, 2);
+      smallL1.setRotationPoint(0F, 17F, 0F);
+      smallL1.setTextureSize(128, 128);
+      smallL1.mirror = true;
+      setRotation(smallL1, 0.2617994F, 2.513274F, 0.2792527F);
+      smallR1 = new ModelRenderer(this, 0, 5);
+      smallR1.addBox(10F, 0F, 0F, 3, 1, 2);
+      smallR1.setRotationPoint(0F, 17F, 0F);
+      smallR1.setTextureSize(128, 128);
+      smallR1.mirror = true;
+      setRotation(smallR1, -0.2617994F, 2.513274F, 0.2792527F);
+      smallL2 = new ModelRenderer(this, 0, 5);
+      smallL2.addBox(10F, 0F, -2F, 3, 1, 2);
+      smallL2.setRotationPoint(0F, 17F, 0F);
+      smallL2.setTextureSize(128, 128);
+      smallL2.mirror = true;
+      setRotation(smallL2, 0.2617994F, 3.769911F, 0.1570796F);
+      smallR2 = new ModelRenderer(this, 0, 5);
+      smallR2.addBox(10F, 0F, 0F, 3, 1, 2);
+      smallR2.setRotationPoint(0F, 17F, 0F);
+      smallR2.setTextureSize(128, 128);
+      smallR2.mirror = true;
+      setRotation(smallR2, -0.2617994F, 3.769911F, 0.1570796F);
+      smallL3 = new ModelRenderer(this, 0, 5);
+      smallL3.addBox(10F, 0F, -2F, 3, 1, 2);
+      smallL3.setRotationPoint(0F, 17F, 0F);
+      smallL3.setTextureSize(128, 128);
+      smallL3.mirror = true;
+      setRotation(smallL3, 0.2617994F, 5.026548F, 0.1570796F);
+      smallR3 = new ModelRenderer(this, 0, 5);
+      smallR3.addBox(10F, 0F, 0F, 3, 1, 2);
+      smallR3.setRotationPoint(0F, 17F, 0F);
+      smallR3.setTextureSize(128, 128);
+      smallR3.mirror = true;
+      setRotation(smallR3, -0.2617994F, 5.026548F, 0.1570796F);
+      smallL4 = new ModelRenderer(this, 0, 5);
+      smallL4.addBox(10F, 0F, -2F, 3, 1, 2);
+      smallL4.setRotationPoint(0F, 17F, 0F);
+      smallL4.setTextureSize(128, 128);
+      smallL4.mirror = true;
+      setRotation(smallL4, 0.2617994F, 0F, 0.2617994F);
+      smallR4 = new ModelRenderer(this, 0, 5);
+      smallR4.addBox(10F, 0F, 0F, 3, 1, 2);
+      smallR4.setRotationPoint(0F, 17F, 0F);
+      smallR4.setTextureSize(128, 128);
+      smallR4.mirror = true;
+      setRotation(smallR4, -0.2617994F, 0F, 0.2617994F);
+      top = new ModelRenderer(this, 0, 9);
+      top.addBox(-1.5F, 0F, -1.5F, 3, 1, 3);
+      top.setRotationPoint(0F, 17F, 0F);
+      top.setTextureSize(128, 128);
+      top.mirror = true;
+      setRotation(top, 0F, 0F, 0F);
+      stem = new ModelRenderer(this, 0, 14);
+      stem.addBox(-1.5F, 7F, -1.5F, 3, 6, 3);
+      stem.setRotationPoint(0F, 11F, 0F);
+      stem.setTextureSize(128, 128);
+      stem.mirror = true;
+      setRotation(stem, 0F, 0F, 0F);
+      base = new ModelRenderer(this, 0, 24);
+      base.addBox(-2.5F, 0F, -2.5F, 5, 1, 5);
+      base.setRotationPoint(0F, 23F, 0F);
+      base.setTextureSize(128, 128);
+      base.mirror = true;
+      setRotation(base, 0F, 0F, 0F);
+  }
+  
+  public void render() {
+	  leafL1.render(0.0625F);
+	    leafL3.render(0.0625F);
+	    leftL2.render(0.0625F);
+	    leftL4.render(0.0625F);
+	    leftL5.render(0.0625F);
+	    leftR2.render(0.0625F);
+	    leftR1.render(0.0625F);
+	    smallL5.render(0.0625F);
+	    leftR4.render(0.0625F);
+	    leftR3.render(0.0625F);
+	    leftR5.render(0.0625F);
+	    smallR5.render(0.0625F);
+	    smallL1.render(0.0625F);
+	    smallR1.render(0.0625F);
+	    smallL2.render(0.0625F);
+	    smallR2.render(0.0625F);
+	    smallL3.render(0.0625F);
+	    smallR3.render(0.0625F);
+	    smallL4.render(0.0625F);
+	    smallR4.render(0.0625F);
+	    top.render(0.0625F);
+	    stem.render(0.0625F);
+	    base.render(0.0625F);
+  }
+
+  
+  private void setRotation(ModelRenderer model, float x, float y, float z)
+  {
+    model.rotateAngleX = x;
+    model.rotateAngleY = y;
+    model.rotateAngleZ = z;
+  }
+
+}

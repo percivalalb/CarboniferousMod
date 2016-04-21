@@ -23,7 +23,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 public class BlockGrass extends Block {
   
 	@SideOnly(Side.CLIENT)
-    private IIcon iconGrassTop;
+    public static IIcon iconGrassTop;
     @SideOnly(Side.CLIENT)
     private IIcon iconSnowSide;
 

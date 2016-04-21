@@ -19,8 +19,10 @@ import carboniferous.client.renderer.block.BlockGrinderRenderer;
 import carboniferous.client.renderer.block.BlockWaterPlantRenderer;
 import carboniferous.client.renderer.entity.RenderMob;
 import carboniferous.client.renderer.item.ItemCompressorRenderer;
+import carboniferous.client.renderer.item.ItemGiantFernRender;
 import carboniferous.client.renderer.item.ItemGrinderRenderer;
 import carboniferous.client.renderer.tileentity.TileEntityCompressorRender;
+import carboniferous.client.renderer.tileentity.TileEntityGiantFernRender;
 import carboniferous.client.renderer.tileentity.TileEntityGrinderRender;
 import carboniferous.client.renderer.tileentity.TileEntityWallShellRender;
 import carboniferous.core.addons.Api;
@@ -38,6 +40,7 @@ import carboniferous.entity.EntityMesothelae;
 import carboniferous.entity.EntityOrthacanthus;
 import carboniferous.lib.ResourceReference;
 import carboniferous.tileentity.TileEntityCompressor;
+import carboniferous.tileentity.TileEntityGiantFern;
 import carboniferous.tileentity.TileEntityGrinder;
 import carboniferous.tileentity.TileEntityWallShell;
 import cpw.mods.fml.client.FMLClientHandler;
@@ -85,6 +88,7 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityWallShell.class, new TileEntityWallShellRender());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGrinder.class, new TileEntityGrinderRender());
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCompressor.class, new TileEntityCompressorRender());
+		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityGiantFern.class, new TileEntityGiantFernRender());
 		
 		FMLCommonHandler.instance().bus().register(new ClientTickHandler());
 	}
@@ -93,6 +97,7 @@ public class ClientProxy extends CommonProxy {
 	public void onModLoad() {
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.grinder), new ItemGrinderRenderer());
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.compressor), new ItemCompressorRenderer());
+		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ModBlocks.giantFern), new ItemGiantFernRender());
 	}
 	
 	@Override

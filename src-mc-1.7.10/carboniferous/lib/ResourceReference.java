@@ -12,6 +12,7 @@ public class ResourceReference {
 	public static final ResourceLocation guiGrinderCog = new ResourceLocation(Properties.PACKAGE, getGuiTexturePath("grindCog.png"));
 	public static final ResourceLocation blockCompressor = new ResourceLocation(Properties.PACKAGE, getModelTexturePath("compressor.png"));
 	public static final ResourceLocation blockGrinder = new ResourceLocation(Properties.PACKAGE, getModelTexturePath("grinder.png"));
+	public static final ResourceLocation giantFern = new ResourceLocation(Properties.PACKAGE, getModelTexturePath("giantFern.png"));
 	
 	public static final ResourceLocation mobAmmonite = new ResourceLocation(Properties.PACKAGE, getMobTexturePath("ammonite.png"));
 	public static final ResourceLocation mobBrachiopod = new ResourceLocation(Properties.PACKAGE, getMobTexturePath("brachiopod.png"));
