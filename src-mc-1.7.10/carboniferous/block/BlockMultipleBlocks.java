@@ -123,30 +123,26 @@ public class BlockMultipleBlocks extends Block {
         this.oreStoragePyrite = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "oreStorage_Pyrite"); //14
     
     }
-    
+	private Random rand = new Random();
     @Override
-    public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7) {
-        super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
-        int meta = par1World.getBlockMetadata(par2, par3, par4);
-        
-        if (meta==7||meta==8||meta==9||meta==10||meta==11||meta==12||meta==13) {
-            int j1 = 0;
-            if(meta == 7 || meta == 11) {
-            	j1 = MathHelper.getRandomIntegerInRange(par1World.rand, 2, 5);
-            }
-            else if(meta == 12 || meta == 8) {
-            	j1 = MathHelper.getRandomIntegerInRange(par1World.rand, 3, 8);
-            }
-            else if(meta == 10) {
-            	j1 = MathHelper.getRandomIntegerInRange(par1World.rand, 6, 7);
-            }
-
-            else if(meta == 13 || meta == 9) {
-            	j1 = MathHelper.getRandomIntegerInRange(par1World.rand, 4, 7);
-            }
-            
-            this.dropXpOnBlockBreak(par1World, par2, par3, par4, j1);
+    public int getExpDrop(IBlockAccess world, int meta, int fortune) {
+    	int j1 = 0;
+        if(meta == 7 || meta == 11) {
+        	j1 = MathHelper.getRandomIntegerInRange(rand, 2, 5);
         }
+        else if(meta == 12 || meta == 8) {
+        	j1 = MathHelper.getRandomIntegerInRange(rand, 3, 8);
+        }
+        else if(meta == 10) {
+        	j1 = MathHelper.getRandomIntegerInRange(rand, 6, 7);
+        }
+
+        else if(meta == 13 || meta == 9) {
+        	j1 = MathHelper.getRandomIntegerInRange(rand, 4, 7);
+        }
+        
+        return j1;
+        
     }
     
     @Override

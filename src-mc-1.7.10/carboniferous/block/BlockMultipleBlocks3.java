@@ -10,11 +10,14 @@ import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 /**
@@ -93,6 +96,32 @@ public class BlockMultipleBlocks3 extends Block {
     	
     	return super.getItemDropped(meta, random, fortune);
     }
+    
+    private Random rand = new Random();
+    @Override
+    public int getExpDrop(IBlockAccess world, int meta, int fortune) {
+    	if(meta == 4)
+    		return MathHelper.getRandomIntegerInRange(rand, 0, 2);
+        else if (meta == 3)
+        	return MathHelper.getRandomIntegerInRange(rand, 3, 7);
+        else
+        	return 0;
+    }
+    
+    @Override
+    public int quantityDropped(int meta, int fortune, Random random) {
+        if(fortune > 0 && (meta == 3 || meta == 4)) {
+            int j = rand.nextInt(fortune + 2) - 1;
+
+            if (j < 0)
+                j = 0;
+
+            return this.quantityDropped(rand) * (j + 1);
+        }
+        else
+            return this.quantityDropped(rand);
+    }
+
     
 
     @Override

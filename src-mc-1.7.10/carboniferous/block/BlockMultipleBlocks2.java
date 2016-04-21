@@ -18,6 +18,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -124,22 +125,39 @@ public class BlockMultipleBlocks2 extends Block {
     	return meta;
     }
     
+    private Random rand = new Random();
+    @Override
+    public int getExpDrop(IBlockAccess world, int meta, int fortune) {
+    	if(meta == 6)
+    		return MathHelper.getRandomIntegerInRange(rand, 0, 2);
+        else
+        	return 0;
+    }
+    
     @Override
     public int quantityDropped(int meta, int fortune, Random random) {
-    	return 1;
+        if(fortune > 0 && (meta == 6)) {
+            int j = rand.nextInt(fortune + 2) - 1;
+
+            if (j < 0)
+                j = 0;
+
+            return this.quantityDropped(rand) * (j + 1);
+        }
+        else
+            return this.quantityDropped(rand);
     }
 
     @Override
     public Item getItemDropped(int meta, Random random, int fortune) {
-    	if(meta == 6) {
+    	if(meta == 6)
         	return Items.coal;
-        }
     	return super.getItemDropped(meta, random, fortune);
     }
     
     @Override
-    public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int metadata) {
-    	return true;
+    public boolean canSilkHarvest(World world, EntityPlayer player, int x, int y, int z, int meta) {
+    	return meta != 1;
     }
 
     
