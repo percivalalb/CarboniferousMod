@@ -57,8 +57,14 @@ public class EntityDragonfly extends EntityFlying {
         return false;
     }
 	
+    @Override
     protected boolean isAIEnabled() {
         return true;
+    }
+    
+    @Override
+    protected boolean canDespawn() {
+        return false;
     }
     
     @Override

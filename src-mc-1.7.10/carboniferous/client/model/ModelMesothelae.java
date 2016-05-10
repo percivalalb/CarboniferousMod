@@ -89,6 +89,7 @@ public class ModelMesothelae extends ModelBase {
   		model.rotateAngleZ = z;
   	}
     
+	  @Override
     public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         setRotationAngles(f, f1, f2, f3, f4, f5, entity);
         head.render(f5);
@@ -104,6 +105,7 @@ public class ModelMesothelae extends ModelBase {
         leg1.render(f5);
     }
 
+    @Override
     public void setRotationAngles(float f, float f1, float f2, float f3, float f4, float f5, Entity entity) {
         head.rotateAngleY = f3 / 57.29578F;
         head.rotateAngleX = f4 / 57.29578F;

@@ -24,6 +24,7 @@ public class ItemMultipleItems extends Item {
 	public static IIcon iconTimerod;
 	public static IIcon iconShellAmmonite;
 	public static IIcon iconShellBrachiopod;
+	public static IIcon iconShellSnail;
 	public static IIcon iconPearl;
 	public static IIcon graniteGear;
 	public static IIcon amphibianSkin;
@@ -51,6 +52,7 @@ public class ItemMultipleItems extends Item {
  		this.iconTimerod = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "timerod");
  		this.iconShellAmmonite = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "shellAmmonite");
  		this.iconShellBrachiopod = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "shellBrachiopod");
+ 		this.iconShellSnail = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "giant_snail_shell");
  		this.iconPearl = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "pearl");
  		this.graniteGear = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "graniteGear");
  		this.amphibianSkin = par1IconRegister.registerIcon(Properties.TEX_PACkAGE + "amphibianSkin");
@@ -85,6 +87,7 @@ public class ItemMultipleItems extends Item {
  		case 15: return this.doorCordaites;
  		case 16: return this.doorSigillaria;
  		case 17: return this.doorAmphibian;
+ 		case 18: return this.iconShellSnail;
  		}
  	    return null;
  	}
@@ -111,7 +114,7 @@ public class ItemMultipleItems extends Item {
  	@Override
  	public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10) {
  	    int meta = stack.getItemDamage();
- 		if(meta == 6 || meta == 7 || meta == 8 || meta == 11) {
+ 		if(meta == 6 || meta == 7 || meta == 8 || meta == 11 || meta == 18) {
  	    	return this.handleShell(stack, player, world, x, y, z, side, par8, par9, par10);
  	    }
  	    else if(meta == 0 || meta == 15 || meta == 16 || meta == 17 || meta == 14){
@@ -200,56 +203,56 @@ public class ItemMultipleItems extends Item {
         p_150924_0_.notifyBlocksOfNeighborChange(p_150924_1_, p_150924_2_ + 1, p_150924_3_, p_150924_5_);
     }
  	
- 	public boolean handleShell(ItemStack itemstack, EntityPlayer entityplayer, World world, int i, int j, int k, int l, float par8, float par9, float par10) {
- 		if (l == 0) {
+ 	public boolean handleShell(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float xHit, float yHit, float zHit) {
+ 		if (side == 0) {
  			return false;
  	    }
- 	    if (l == 1) {
+ 	    if (side == 1) {
  	    	return false;
  	    }
- 	    if (l == 2){
- 	    	k--;
+ 	    if (side == 2){
+ 	    	z--;
  	    }
 
- 	    if (l == 3) {
- 	    	k++;
+ 	    if (side == 3) {
+ 	    	z++;
  	    }
 
- 	    if (l == 4) {
- 	    	i--;
+ 	    if (side == 4) {
+ 	    	x--;
  	    }
 
- 	    if (l == 5) {
- 	    	i++;
+ 	    if (side == 5) {
+ 	    	x++;
  	    }
- 	    if (world.getBlock(i, j, k).getMaterial().isSolid()) {
+ 	    if (world.getBlock(x, y, z).getMaterial().isSolid()) {
  	      return false;
  	    }
- 	    if (!entityplayer.canPlayerEdit(i, j, k, l, itemstack)) {
+ 	    if (!player.canPlayerEdit(x, y, z, side, stack)) {
  	    	return false;
  	    }
- 	    if (!ModBlocks.wallShell.canBlockStay(world, i, j, k)) {
+ 	    if (!ModBlocks.wallShell.canBlockStay(world, x, y, z)) {
  	    	return false;
  	    }
- 	    switch (l) {
+ 	    switch (side) {
  	    case 2:
- 	    	l = 1;
+ 	    	side = 1;
  	    	break;
  	    case 3:
- 	    	l = 3;
+ 	    	side = 3;
  	    	break;
  	    case 4:
- 	    	l = 0;
+ 	    	side = 0;
  	    	break;
  	    case 5:
- 	    	l = 2;
+ 	    	side = 2;
  	    }
 
- 	    world.setBlock(i, j, k, ModBlocks.wallShell, l, 3);
- 	    itemstack.stackSize -= 1;
- 	    TileEntityWallShell west = (TileEntityWallShell)world.getTileEntity(i, j, k);
+ 	    world.setBlock(x, y, z, ModBlocks.wallShell, side, 3);
+ 	    stack.stackSize -= 1;
+ 	    TileEntityWallShell west = (TileEntityWallShell)world.getTileEntity(x, y, z);
  	    if (west != null) {
- 	    	west.setShell(itemstack.getItem(), itemstack.getItemDamage());
+ 	    	west.setShell(stack.getItem(), stack.getItemDamage());
  	    }
  	    return true;
  	}

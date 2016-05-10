@@ -76,6 +76,7 @@ public class EntityDendrerpeton extends EntityAnimal {
         return worldObj.getBlock(i, j - 1, k) == ModBlocks.grass;
     }
 
+    @Override
     protected boolean canDespawn() {
         return false;
     }

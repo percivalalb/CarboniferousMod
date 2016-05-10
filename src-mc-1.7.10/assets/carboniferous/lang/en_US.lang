@@ -89,6 +89,7 @@ tile.carbon.coral.1.name=Brain Coral
 tile.carbon.coral.2.name=Red Coral
 tile.carbon.coral.3.name=Rock Coral
 tile.carbon.coral.4.name=Glowing Coral
+tile.carbon.brittleIce.name=Brittle Ice
 item.carbon.flippers.name=Flippers
 item.carbon.rawDragonfly.name=Dragonfly
 item.carbon.cookedDragonfly.name=Cooked Dragonfly
@@ -113,6 +114,7 @@ item.carbon.multipleItems.14.name=Calamites Wooden Door
 item.carbon.multipleItems.15.name=Cordaites Wooden Door
 item.carbon.multipleItems.16.name=Sigillaria Wooden Door
 item.carbon.multipleItems.17.name=Amphibian Skin Door
+item.carbon.multipleItems.18.name=Giant Snail Shell 
 item.carbon.grindingStones.0.name=Grinding Stone
 item.carbon.grindingStones.1.name=Iron Grinding Ball
 item.carbon.amphibianSkinHelmet.name=Amphibian Skin Helmet
@@ -124,6 +126,7 @@ item.carbon.rawAnt.name=Ant
 item.carbon.cookedAnt.name=Cooked Ant
 item.carbon.quiver.name=Quiver
 item.carbon.egg.name=Egg
+item.carbon.spawner.name=Spawn
 
 container.grinder=Grinder
 itemGroup.carboniferous=Carboniferous Mod
@@ -137,5 +140,7 @@ entity.carboniferous.orthacanthus.name=Orthacanthus
 entity.carboniferous.crassigyrinus.name=Crassigyrinus (WIP)
 entity.carboniferous.crab.name=Crab
 entity.carboniferous.dimetrodon.name=Dimetrodon
-        
+entity.carboniferous.giantsnail.name=Giant Snail
+entity.carboniferous.trilobite.name=Trilobite
+
 entity.carboniferous.giantMeganeura.name=Giant Meganeura

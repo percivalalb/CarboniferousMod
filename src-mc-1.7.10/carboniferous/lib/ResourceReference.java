@@ -24,7 +24,8 @@ public class ResourceReference {
 	public static final ResourceLocation mobGiantMeganeura = new ResourceLocation(Properties.PACKAGE, getMobTexturePath("giantMeganeura.png"));
 	public static final ResourceLocation mobMesothelae = new ResourceLocation(Properties.PACKAGE, getMobTexturePath("mesothelae.png"));
 	public static final ResourceLocation mobOrthacanthus = new ResourceLocation(Properties.PACKAGE, getMobTexturePath("orthacanthus.png"));
-	
+	public static final ResourceLocation mobGiantSnail = new ResourceLocation(Properties.PACKAGE, getMobTexturePath("giant_snail.png"));
+	public static final ResourceLocation mobTrilobite = new ResourceLocation(Properties.PACKAGE, getMobTexturePath("trilobite.png"));
 	
     public static String getGuiTexturePath(String textureFileName) {
 	    return String.format("%s/gui/%s", new Object[] {getOverrideTexturesPath(), textureFileName});

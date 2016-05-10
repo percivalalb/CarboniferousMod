@@ -25,7 +25,6 @@ public class IC2Plugin {
     	addBiomeBonus(BiomeGenBaseCarboniferous.highlands, 2, 2);
     	addBiomeBonus(BiomeGenBaseCarboniferous.island, 1, 3);
     	addBiomeBonus(BiomeGenBaseCarboniferous.rainforest, 2, 2);
-    	addBiomeBonus(BiomeGenBaseCarboniferous.bog, 2, 2);
     }
 
     @SubscribeEvent

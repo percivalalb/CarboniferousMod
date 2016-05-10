@@ -7,6 +7,7 @@ import carboniferous.item.ItemEggs;
 import carboniferous.item.ItemFlippers;
 import carboniferous.item.ItemGrindingStones;
 import carboniferous.item.ItemHuntersBow;
+import carboniferous.item.ItemMobSpawner;
 import carboniferous.item.ItemMultipleItems;
 import carboniferous.item.ItemNet;
 import carboniferous.item.ItemQuiver;
@@ -34,6 +35,7 @@ public class ModItems {
 	public static Item cookedAmphibian;
 	public static Item quiver;
 	public static Item egg;
+	public static Item mobSpawner;
 	
 	public static Item net;
 	
@@ -56,6 +58,7 @@ public class ModItems {
 		quiver = new ItemQuiver(CarboniferousMod.proxy.armorRender("carbon.quiver")).setUnlocalizedName("carbon.quiver");	
 		net = new ItemNet().setUnlocalizedName("carbon.net");
 		egg = new ItemEggs().setUnlocalizedName("carbon.egg");
+		mobSpawner = new ItemMobSpawner().setUnlocalizedName("carbon.spawner");
 		
 		GameRegistry.registerItem(flippers, "flippers");
 		GameRegistry.registerItem(multiItems, "multiitems");
@@ -74,5 +77,6 @@ public class ModItems {
 		GameRegistry.registerItem(quiver, "quiver");
 		GameRegistry.registerItem(net, "net");
 		GameRegistry.registerItem(egg, "egg");
+		GameRegistry.registerItem(mobSpawner, "mob_spawner");
 	}	
 }

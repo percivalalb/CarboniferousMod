@@ -27,7 +27,6 @@ public class BiomeGenBaseCarboniferous extends BiomeGenBase {
 	protected static final BiomeGenBase.Height height_island = new BiomeGenBase.Height(-0.4F, 0.5F);
 	protected static final BiomeGenBase.Height height_coal_swamp = new BiomeGenBase.Height(-0.05F, 0.10F);
 	protected static final BiomeGenBase.Height height_rainforest = new BiomeGenBase.Height(0.25F, 0.25F);
-	protected static final BiomeGenBase.Height height_bog = new BiomeGenBase.Height(0.0F, 0.4F);
 	protected static final BiomeGenBase.Height height_icesheet = new BiomeGenBase.Height(0.1F, 0.0F);
 	
 	public static final BiomeGenBase carboniferousRiver = new BiomeGenRiverCarboniferous(Properties.BIOME_ID_RIVER);
@@ -38,7 +37,6 @@ public class BiomeGenBaseCarboniferous extends BiomeGenBase {
 	public static final BiomeGenBase island = new BiomeGenIsland(Properties.BIOME_ID_ISLAND);
 	public static final BiomeGenBase coalSwamp = new BiomeGenCoalSwamp(Properties.BIOME_ID_COALSWAMP);
 	public static final BiomeGenBase rainforest = new BiomeGenRainforest(Properties.BIOME_ID_RAINFOREST);
-	public static final BiomeGenBase bog = new BiomeGenBog(Properties.BIOME_ID_BOG);
 	public static final BiomeGenBase icesheet = new BiomeGenIceSheet(Properties.BIOME_ID_ICE_SHEET);
 
 	public BiomeGenBaseCarboniferous(int id) {
@@ -61,8 +59,8 @@ public class BiomeGenBaseCarboniferous extends BiomeGenBase {
         this.theBiomeDecorator.grassPerChunk = 10;
 	}	
 	
-	@SideOnly(Side.CLIENT)
 	@Override
+	@SideOnly(Side.CLIENT)
     public int getBiomeGrassColor(int x, int y, int z) {
         return 3887907;
     }
@@ -74,15 +72,12 @@ public class BiomeGenBaseCarboniferous extends BiomeGenBase {
     }
     
     @Override
-    public void genTerrainBlocks(World world, Random rand, Block[] dataId, byte[] dataMeta, int x, int z, double stoneNoise) {
-    	int blocksOfFiller = 10;
-    	
-    	
+    public void genTerrainBlocks(World world, Random rand, Block[] dataId, byte[] dataMeta, int x, int z, double noiseVal) {
         Block block = this.topBlock;
         byte b0 = (byte)(this.field_150604_aj & 255);
         Block block1 = this.fillerBlock;
         int k = -1;
-        int l = (int)(stoneNoise / 3.0D + 3.0D + rand.nextDouble() * 0.25D);
+        int l = (int)(noiseVal / 3.0D + 3.0D + rand.nextDouble() * 0.25D);
         int xInChunk = x & 15;
         int zInChunk = z & 15;
         int layerSize = dataId.length / 256;
@@ -126,7 +121,7 @@ public class BiomeGenBaseCarboniferous extends BiomeGenBase {
                                 dataId[index] = block;
                                 dataMeta[index] = b0;
                             }
-                            else if (y < 52 + blocksOfFiller - l) {
+                            else if (y < 56 - l) {
                                 block = null;
                                 block1 = ModBlocks.multiBlock1;
                                 dataId[index] = ModBlocks.dirt;
@@ -155,8 +150,4 @@ public class BiomeGenBaseCarboniferous extends BiomeGenBase {
     	return (BiomeDecoratorCarboniferous)this.theBiomeDecorator;
     }
     
-    @Override
-    public void decorate(World par1World, Random par2Random, int par3, int par4) {
-    	super.decorate(par1World, par2Random, par3, par4);
-    }
 }

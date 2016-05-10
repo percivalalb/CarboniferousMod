@@ -75,22 +75,21 @@ public class ContainerGrinder extends Container {
 
     @SideOnly(Side.CLIENT)
     @Override
-    public void updateProgressBar(int par1, int par2) {
-        if (par1 == 0) {
-        	this.grinder.grindTime = par2;
+    public void updateProgressBar(int id, int value) {
+        if (id == 0) {
+        	this.grinder.grindTime = value;
         }
-        if (par1 == 1) {
-            this.grinder.grinderBurnTime = par2;
+        if (id == 1) {
+            this.grinder.grinderBurnTime = value;
         }
 
-        if (par1 == 2) {
-            this.grinder.currentItemBurnTime = par2;
+        if (id == 2) {
+            this.grinder.currentItemBurnTime = value;
         }
     }
 
-    
-    public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2)
-    {
+    @Override
+    public ItemStack transferStackInSlot(EntityPlayer par1EntityPlayer, int par2) {
         ItemStack itemstack = null;
         Slot slot = (Slot)this.inventorySlots.get(par2);
 

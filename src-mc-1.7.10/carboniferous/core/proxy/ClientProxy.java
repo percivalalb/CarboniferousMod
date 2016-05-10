@@ -14,9 +14,11 @@ import carboniferous.client.model.ModelFlippers;
 import carboniferous.client.model.ModelGiantMeganeura;
 import carboniferous.client.model.ModelMesothelae;
 import carboniferous.client.model.ModelOrthacanthus;
+import carboniferous.client.model.ModelTrilobite;
 import carboniferous.client.renderer.block.BlockAntHillRenderer;
 import carboniferous.client.renderer.block.BlockGrinderRenderer;
 import carboniferous.client.renderer.block.BlockWaterPlantRenderer;
+import carboniferous.client.renderer.entity.RenderGiantSnail;
 import carboniferous.client.renderer.entity.RenderMob;
 import carboniferous.client.renderer.item.ItemCompressorRenderer;
 import carboniferous.client.renderer.item.ItemGiantFernRender;
@@ -36,8 +38,10 @@ import carboniferous.entity.EntityDendrerpeton;
 import carboniferous.entity.EntityDimetrodon;
 import carboniferous.entity.EntityDragonfly;
 import carboniferous.entity.EntityGiantMeganeura;
+import carboniferous.entity.EntityGiantSnail;
 import carboniferous.entity.EntityMesothelae;
 import carboniferous.entity.EntityOrthacanthus;
+import carboniferous.entity.EntityTrilobite;
 import carboniferous.lib.ResourceReference;
 import carboniferous.tileentity.TileEntityCompressor;
 import carboniferous.tileentity.TileEntityGiantFern;
@@ -82,6 +86,9 @@ public class ClientProxy extends CommonProxy {
 		RenderingRegistry.registerEntityRenderingHandler(EntityCrassigyrinus.class, new RenderMob(new ModelCrassigyrinus(), 0.7F, ResourceReference.mobCrassigyrinus));
 		RenderingRegistry.registerEntityRenderingHandler(EntityCrab.class, new RenderMob(new ModelCrab(), 0.3F, ResourceReference.mobCrab));
 		RenderingRegistry.registerEntityRenderingHandler(EntityDimetrodon.class, new RenderMob(new ModelDimetrodon(), 0.3F, 1.4F, ResourceReference.mobDimetrodon));
+		RenderingRegistry.registerEntityRenderingHandler(EntityTrilobite.class, new RenderMob(new ModelTrilobite(), 0.4F, ResourceReference.mobTrilobite));
+		
+		RenderingRegistry.registerEntityRenderingHandler(EntityGiantSnail.class, new RenderGiantSnail());
 		//Boss-Like creatures
 		RenderingRegistry.registerEntityRenderingHandler(EntityGiantMeganeura.class, new RenderMob(new ModelGiantMeganeura(), 0.7F, ResourceReference.mobGiantMeganeura));
 		//Entitys

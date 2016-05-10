@@ -41,10 +41,10 @@ public class GenLayerCarboniferousBiomes extends GenLayer {
                 else if(nextInt(6) == 0) {
                 	var5[var7 + var6 * var3] = BiomeGenBaseCarboniferous.rainforest.biomeID;
                 }
-                else if(nextInt(6) == 0) {
+                else if(nextInt(7) == 0) {//6
                 	var5[var7 + var6 * var3] = BiomeGenBaseCarboniferous.highlands.biomeID;
                 }
-                else if(nextInt(10) == 0) {
+                else if(nextInt(10) == 0) {//10
                 	var5[var7 + var6 * var3] = BiomeGenBaseCarboniferous.icesheet.biomeID;
                 }
                 else {

@@ -65,8 +65,6 @@ public class ChunkProviderCarboniferous implements IChunkProvider
     private double[] stoneNoise = new double[256];
     private MapGenBase caveGenerator = new MapGenCarboniferousCaves();
     private MapGenScatteredFeature scatteredFeatureGenerator = new MapGenScatteredFeature();
-    /** Holds ravine generator */
-    private MapGenBase ravineGenerator = new MapGenRavine();
     /** The biomes that are used to generate the chunk */
     private BiomeGenBase[] biomesForGeneration;
     double[] field_147427_d;
@@ -79,7 +77,6 @@ public class ChunkProviderCarboniferous implements IChunkProvider
     {
         caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
         scatteredFeatureGenerator = (MapGenScatteredFeature) TerrainGen.getModdedMapGen(scatteredFeatureGenerator, SCATTERED_FEATURE);
-        ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, RAVINE);
     }    
 
     public ChunkProviderCarboniferous(World par1World, long par2, boolean par4)
@@ -230,7 +227,6 @@ public class ChunkProviderCarboniferous implements IChunkProvider
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
         this.replaceBlocksForBiome(par1, par2, ablock, abyte, this.biomesForGeneration);
         this.caveGenerator.func_151539_a(this, this.worldObj, par1, par2, ablock);
-        this.ravineGenerator.func_151539_a(this, this.worldObj, par1, par2, ablock);
 
         if (this.mapFeaturesEnabled)
         {

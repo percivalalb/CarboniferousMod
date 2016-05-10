@@ -8,9 +8,14 @@ import carboniferous.entity.EntityDendrerpeton;
 import carboniferous.entity.EntityDimetrodon;
 import carboniferous.entity.EntityDragonfly;
 import carboniferous.entity.EntityGiantMeganeura;
+import carboniferous.entity.EntityGiantSnail;
 import carboniferous.entity.EntityMesothelae;
 import carboniferous.entity.EntityOrthacanthus;
+import carboniferous.entity.EntityTrilobite;
+import carboniferous.item.ItemMobSpawner;
+import carboniferous.lib.Reference;
 import cpw.mods.fml.common.registry.EntityRegistry;
+import net.minecraft.entity.EntityList;
 
 public class ModEntities {
 
@@ -25,6 +30,8 @@ public class ModEntities {
 		registerMob(EntityCrassigyrinus.class, "crassigyrinus", 7, 13056, 4996656);
 		registerMob(EntityCrab.class, "crab", 8, 0xFF6600, 0xCC3300);
 		registerMob(EntityDimetrodon.class, "dimetrodon", 9, 0x669933, 0xCC9900);
+		registerMob(EntityGiantSnail.class, "giantsnail", 11, 0x669933, 0xCC9900);
+		registerMob(EntityTrilobite.class, "trilobite", 12, 0x669933, 0xCC9900);
 		//Boss-like Creatures
 		registerMob(EntityGiantMeganeura.class, "giantMeganeura", 10, 0x00CC66, 0xFF3333);
 		//Entitys
@@ -55,6 +62,9 @@ public class ModEntities {
 	
 	public static void registerMob(Class entityClass, String saveName, int id, int backgroundEggColour, int foregroundEggColour) {
 	    EntityRegistry.registerModEntity(entityClass, saveName, id, CarboniferousMod.INSTANCE, 120, 1, true);
-	    //CreativeTabCarboniferous.spawnersList.add(EntityList.id);
+	    ItemMobSpawner.entityEggs.put(id, new ItemMobSpawner.EntityEggInfo(entityClass,	String.format("%s.%s", Reference.MOD_ID, saveName), backgroundEggColour, foregroundEggColour));
+	  //  EntityList.entityEggs.put(Integer.valueOf(p_75614_2_), new EntityList.EntityEggInfo(p_75614_2_, p_75614_3_, p_75614_4_));
+	  //  EntityRegistry.registerGlobalEntityID(entityClass, entityName, id, backgroundEggColour, foregroundEggColour);
+	  //  CreativeTabCarboniferous.spawnersList.add(Integer.valueOf(p_75614_2_), new EntityList.EntityEggInfo(p_75614_2_, p_75614_3_, p_75614_4_));
 	}
 }

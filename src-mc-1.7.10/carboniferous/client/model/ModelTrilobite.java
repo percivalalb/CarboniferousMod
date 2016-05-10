@@ -1,5 +1,7 @@
 package carboniferous.client.model;
 
-public class ModelTrilobite {
+import net.minecraft.client.model.ModelBase;
+
+public class ModelTrilobite extends ModelBase {
 
 }

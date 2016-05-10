@@ -2,6 +2,7 @@ package carboniferous;
 
 import carboniferous.api.CarboniferousApi;
 import carboniferous.block.BlockAntHill;
+import carboniferous.block.BlockBrittleIce;
 import carboniferous.block.BlockCarboniferousSand;
 import carboniferous.block.BlockCarboniferousStairs;
 import carboniferous.block.BlockCompressor;
@@ -87,6 +88,7 @@ public class ModBlocks {
 	public static Block compressor;
 	public static Block tilledEarth;
 	public static Block giantFern;
+	public static Block brittleIce;
 	
 	public static void init() {
 		//Init Block Variables
@@ -128,6 +130,7 @@ public class ModBlocks {
 		compressor = new BlockCompressor().setBlockName("carbon.compressor");
 		tilledEarth = new BlockTilledDirt().setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockName("carbon.tilledDirt");
 		giantFern = new BlockGiantFern().setStepSound(Block.soundTypeGrass).setBlockName("carbon.giantFern");
+		brittleIce = new BlockBrittleIce().setBlockName("carbon.brittleIce");
 		
 		//Register Blocks
 		GameRegistry.registerBlock(timeBox, "carbon.timeBox");
@@ -167,12 +170,13 @@ public class ModBlocks {
 		GameRegistry.registerBlock(coral, ItemMulipleBlock.class, "carbon.coral");
 		GameRegistry.registerBlock(compressor, "carbon.compressor");
 		GameRegistry.registerBlock(tilledEarth, "carbon.tilledEarth");
-		GameRegistry.registerBlock(giantFern, "giantFern");
+		GameRegistry.registerBlock(giantFern, "giant_fern");
+		GameRegistry.registerBlock(brittleIce, "brittle_ice");
 		//Register Tile Entity
-		GameRegistry.registerTileEntity(TileEntityGrinder.class, "carbon.grinder");
-		GameRegistry.registerTileEntity(TileEntityWallShell.class, "carbon.wallGrinder");
-		GameRegistry.registerTileEntity(TileEntityTimeBox.class, "carbon.timeBox");
-		GameRegistry.registerTileEntity(TileEntityCompressor.class, "carbon.compressor");
+		GameRegistry.registerTileEntity(TileEntityGrinder.class, "carboniferous:grinder");
+		GameRegistry.registerTileEntity(TileEntityWallShell.class, "carboniferous:wallGrinder");
+		GameRegistry.registerTileEntity(TileEntityTimeBox.class, "carboniferous:timeBox");
+		GameRegistry.registerTileEntity(TileEntityCompressor.class, "carboniferous:compressor");
 		GameRegistry.registerTileEntity(TileEntityGiantFern.class, "carboniferous:giantFern");
 		
 		intiHarvestStats(); //Sets which tools the blocks and be harvested by.
