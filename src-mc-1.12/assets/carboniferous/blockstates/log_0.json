@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "axis=y,variant=lepidodendron":  { "model": "carboniferous:lepidodendron_log" },
+        "axis=z,variant=lepidodendron":   { "model": "carboniferous:lepidodendron_log", "x": 90 },
+        "axis=x,variant=lepidodendron":   { "model": "carboniferous:lepidodendron_log", "x": 90, "y": 90 },
+        "axis=none,variant=lepidodendron": { "model": "carboniferous:lepidodendron_bark" },
+        "axis=y,variant=sigillaria":  { "model": "carboniferous:sigillaria_log" },
+        "axis=z,variant=sigillaria":   { "model": "carboniferous:sigillaria_log", "x": 90 },
+        "axis=x,variant=sigillaria":   { "model": "carboniferous:sigillaria_log", "x": 90, "y": 90 },
+        "axis=none,variant=sigillaria": { "model": "carboniferous:sigillaria_bark" },
+        "axis=y,variant=sigillaria":  { "model": "carboniferous:sigillaria_log" },
+        "axis=z,variant=sigillaria":   { "model": "carboniferous:sigillaria_log", "x": 90 },
+        "axis=x,variant=sigillaria":   { "model": "carboniferous:sigillaria_log", "x": 90, "y": 90 },
+        "axis=none,variant=sigillaria": { "model": "carboniferous:sigillaria_bark" },
+        "axis=y,variant=sigillaria":  { "model": "carboniferous:sigillaria_log" },
+        "axis=z,variant=sigillaria":   { "model": "carboniferous:sigillaria_log", "x": 90 },
+        "axis=x,variant=sigillaria":   { "model": "carboniferous:sigillaria_log", "x": 90, "y": 90 },
+        "axis=none,variant=sigillaria": { "model": "carboniferous:sigillaria_bark" }
+    }
+}

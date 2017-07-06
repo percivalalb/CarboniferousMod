@@ -1,6 +1,7 @@
 package carboniferous.network;
 
 import carboniferous.lib.Reference;
+import carboniferous.network.packet.client.PacketTeleport;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.network.Packet;
@@ -24,7 +25,7 @@ public class PacketDispatcher {
 	private static final SimpleNetworkWrapper dispatcher = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.CHANNEL_NAME);
 
 	public static final void registerPackets() {
-		//registerMessage(CommandMessage.class);
+		registerMessage(PacketTeleport.class);
 	}
 	
 	private static final <T extends AbstractMessage<T> & IMessageHandler<T, IMessage>> void registerMessage(Class<T> clazz) {

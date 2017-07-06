@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/leaves",
+    "textures": {
+        "all": "carboniferous:blocks/leaves_calamites_opaque"
+    }
+}

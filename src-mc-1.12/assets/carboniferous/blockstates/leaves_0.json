@@ -1,0 +1,12 @@
+{
+    "variants": {
+        "transparent=true,variant=lepidodendron": { "model": "carboniferous:lepidodendron_leaves" },
+        "transparent=true,variant=calamites": { "model": "carboniferous:calamites_leaves" },
+        "transparent=true,variant=cordaites": { "model": "carboniferous:cordaites_leaves" },
+        "transparent=true,variant=sigillaria": { "model": "carboniferous:sigillaria_leaves" },
+        "transparent=false,variant=lepidodendron": { "model": "carboniferous:lepidodendron_leaves_opaque" },
+        "transparent=false,variant=calamites": { "model": "carboniferous:calamites_leaves_opaque" },
+        "transparent=false,variant=cordaites": { "model": "carboniferous:cordaites_leaves_opaque" },
+        "transparent=false,variant=sigillaria": { "model": "carboniferous:sigillaria_leaves_opaque" }
+    }
+}

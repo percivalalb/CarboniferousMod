@@ -1,9 +1,12 @@
 package carboniferous.proxy;
 
+import carboniferous.handler.ClientTick;
+import carboniferous.handler.GameOverlay;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.IThreadListener;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import net.minecraftforge.fml.relauncher.Side;
@@ -14,7 +17,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 @SideOnly(Side.CLIENT)
 public class ClientProxy extends CommonProxy {
-
+	
 	@Override
 	public void preInit(FMLPreInitializationEvent event) {
 		super.preInit(event);
@@ -25,7 +28,8 @@ public class ClientProxy extends CommonProxy {
 	@Override
     protected void registerEventHandlers() {
         super.registerEventHandlers();
-        //MinecraftForge.EVENT_BUS.register(new WorldRender());
+        MinecraftForge.EVENT_BUS.register(new ClientTick());
+        MinecraftForge.EVENT_BUS.register(new GameOverlay());
     }
 	
 

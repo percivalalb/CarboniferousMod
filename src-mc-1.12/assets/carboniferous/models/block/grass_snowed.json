@@ -1,0 +1,8 @@
+{
+    "parent": "minecraft:block/cube_bottom_top",
+    "textures": {
+        "bottom": "carboniferous:blocks/dirt",
+        "top": "carboniferous:blocks/grass_top",
+        "side": "carboniferous:blocks/grass_side_snowed"
+    }
+}

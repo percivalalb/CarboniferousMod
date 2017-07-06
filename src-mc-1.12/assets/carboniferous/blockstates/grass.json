@@ -1,0 +1,11 @@
+{
+    "variants": {
+        "snowy=false": [
+            { "model": "carboniferous:grass_normal" },
+            { "model": "carboniferous:grass_normal", "y": 90 },
+            { "model": "carboniferous:grass_normal", "y": 180 },
+            { "model": "carboniferous:grass_normal", "y": 270 }
+        ],
+        "snowy=true":  { "model": "carboniferous:grass_snowed" }
+    }
+}

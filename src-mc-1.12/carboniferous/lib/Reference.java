@@ -7,7 +7,7 @@ package carboniferous.lib;
 public class Reference {
 
 	//Mod Related Constants 
-	public static final String 		 MOD_ID 	      = "carboniferousmod";
+	public static final String 		 MOD_ID 	      = "carboniferous";
 	public static final String		 MOD_NAME         = "Carboniferous";
 	public static final String 		 MOD_VERSION      = "1.0.0.1";
 	public static final String 		 DEPENDENCIES     = "required-after:forge@[14.21.1.2387,)";

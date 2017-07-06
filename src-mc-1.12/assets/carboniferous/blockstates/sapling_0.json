@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "type=lepidodendron": { "model": "carboniferous:lepidodendron_sapling" },
+        "type=calamites": { "model": "carboniferous:calamites_sapling" },
+        "type=cordaites": { "model": "carboniferous:cordaites_sapling" },
+        "type=sigillaria": { "model": "carboniferous:sigillaria_sapling" }
+    }
+}

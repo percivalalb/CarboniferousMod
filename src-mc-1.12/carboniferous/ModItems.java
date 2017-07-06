@@ -8,6 +8,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -15,6 +16,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  * @author ProPercivalalb
  */
 @EventBusSubscriber(modid = Reference.MOD_ID)
+@ObjectHolder(Reference.MOD_ID)
 public class ModItems {
 
 	//public static Item THROW_BONE;

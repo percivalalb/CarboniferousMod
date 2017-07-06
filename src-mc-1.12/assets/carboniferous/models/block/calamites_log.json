@@ -1,0 +1,7 @@
+{
+    "parent": "minecraft:block/cube_column",
+    "textures": {
+        "end": "carboniferous:blocks/log_calamites_top",
+        "side": "carboniferous:blocks/log_calamites"
+    }
+}

@@ -2,7 +2,7 @@ package carboniferous.addon.itemphysic;
 
 import java.lang.reflect.Method;
 
-import carboniferous.DoggyTalents;
+import carboniferous.Carboniferous;
 import carboniferous.helper.ReflectionUtil;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -32,7 +32,7 @@ public class ItemPhysicAPI {
 		Object sortingList = ReflectionUtil.getField(this.serverPhysicClass, sortingListName).get(null);
 		for(Block block : blocks) {
 			this.addSortingBlock.invoke(sortingList, block);
-			DoggyTalents.LOGGER.info("Successefully registered %s in %s list", block, sortingListName);
+			Carboniferous.LOGGER.info("Successefully registered %s in %s list", block, sortingListName);
 		}
 	}
 	
@@ -40,7 +40,7 @@ public class ItemPhysicAPI {
 		Object sortingList = ReflectionUtil.getField(this.serverPhysicClass, sortingListName).get(null);
 		for(Item item : items) {
 			this.addSortingItem.invoke(sortingList, item);
-			DoggyTalents.LOGGER.info("Successefully registered %s in %s list", item, sortingListName);
+			Carboniferous.LOGGER.info("Successefully registered %s in %s list", item, sortingListName);
 		}
 	}
 }

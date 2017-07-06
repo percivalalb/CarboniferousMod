@@ -1,0 +1,6 @@
+{
+    "parent": "minecraft:block/cross",
+    "textures": {
+        "cross": "carboniferous:blocks/sapling_cordaites"
+    }
+}

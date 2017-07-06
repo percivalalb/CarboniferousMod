@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.google.common.base.Throwables;
 
-import carboniferous.DoggyTalents;
+import carboniferous.Carboniferous;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.network.Packet;
@@ -89,11 +89,11 @@ public abstract class AbstractMessage<T extends AbstractMessage<T>> implements I
 		if (!msg.isValidOnSide(ctx.side))
 			throw new RuntimeException("Invalid side " + ctx.side.name() + " for " + msg.getClass().getSimpleName());
 		
-		IThreadListener thread = DoggyTalents.PROXY.getThreadFromContext(ctx);
+		IThreadListener thread = Carboniferous.PROXY.getThreadFromContext(ctx);
 		// pretty much copied straight from vanilla code, see {@link PacketThreadUtil#checkThreadAndEnqueue}
 		thread.addScheduledTask(new Runnable() {
 			public void run() {
-				msg.process(DoggyTalents.PROXY.getPlayerEntity(ctx), ctx.side);
+				msg.process(Carboniferous.PROXY.getPlayerEntity(ctx), ctx.side);
 			}
 		});
 		

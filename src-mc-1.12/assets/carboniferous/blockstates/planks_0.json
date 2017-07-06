@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "variant=lepidodendron": { "model": "carboniferous:lepidodendron_planks" },
+        "variant=calamites": { "model": "carboniferous:calamites_planks" },
+        "variant=cordaites": { "model": "carboniferous:cordaites_planks" },
+        "variant=sigillaria": { "model": "carboniferous:sigillaria_planks" }
+    }
+}
