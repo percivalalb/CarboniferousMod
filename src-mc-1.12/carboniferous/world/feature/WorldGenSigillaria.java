@@ -3,90 +3,89 @@ package carboniferous.world.feature;
 import java.util.Random;
 
 import carboniferous.ModBlocks;
+import carboniferous.block.EnumWood;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumFacing.Axis;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
-public class WorldGenSigillaria extends WorldGenAbstractTree
-{
-    public WorldGenSigillaria(boolean par1) {
-    	super(par1);
+public class WorldGenSigillaria extends WorldGenAbstractTree {
+	
+	public IBlockState blockStateLog;
+	public IBlockState blockStateLeaves;
+	
+    public WorldGenSigillaria(boolean notify) {
+        super(notify);
+        this.blockStateLog = ModBlocks.LOG_0.getDefaultState().withProperty(ModBlocks.LOG_0.VARIANT, EnumWood.SIGILLARIA);
+        this.blockStateLeaves = ModBlocks.LEAVES_0.getDefaultState().withProperty(ModBlocks.LEAVES_0.VARIANT, EnumWood.SIGILLARIA);
     }
 
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
-    	Block soil = this.getBlockIfChunkExists(world, i, j - 1, k);
-    	boolean isSoil = (soil != null && soil.canSustainPlant(world, i, j - 1, k, ForgeDirection.UP, (BlockSapling)ModBlocks.saplings_1));
-        if (isSoil && world.isAirBlock(i, j + 12, k)) {
+    	IBlockState soil = worldIn.getBlockState(position.down());
+    	
+    	boolean isSoil = (soil.getBlock().canSustainPlant(soil, worldIn, position.down(), EnumFacing.UP, ModBlocks.SAPLING_0));
+    	if(isSoil && worldIn.isAirBlock(position.up(12))) {
             for (int l = 0; l < 1; l++)
             {
                 for (int j1 = 0; j1 < 22; j1++)
                 {
                     for (int k1 = 0; k1 < 1; k1++)
                     {
-                    	if(this.isAirBlockIfChunkExists(world, i + l, j + j1, k + k1)) {
-                    		setBlockandMetadataIfChunkExists(world, i + l, j + j1, k + k1, ModBlocks.logs_1, 3);
+                    	if(worldIn.isAirBlock(position.add(l, j1, k1))) {
+                    		this.setBlockAndNotifyAdequately(worldIn, position.add(l, j1, k1), this.blockStateLog);
                     	}
                     }
                 }
             }
 
-            int i1 = random.nextInt(3);
-            if (i1 == 0)
-            {
-                generateBranches(world, random, i, j + 21, k, 0);
-            }
-            if (i1 == 1)
-            {
-                generateBranches(world, random, i, j + 21, k, 1);
-            }
-            if (i1 == 2)
-            {
-                generateBranches(world, random, i, j + 21, k, 2);
-            }
+            this.generateBranches(worldIn, rand, position.up(21), rand.nextInt(3));
+            
             return true;
         }
         return false;
     }
 
-    private boolean generateBranches(World world, Random random, int i, int j, int k, int l)
-    {
-        if (l == 0)
-        {
-            for (int i1 = 0; i1 < 1; i1++)
-            {
-                for (int j2 = 0; j2 < 5; j2++)
-                {
-                    for (int k3 = 0; k3 < 1; k3++)
-                    {
-                        setBlockandMetadataIfChunkExists(world, i + i1, j + j2, k + k3, ModBlocks.logs_1, 3);
-                        setBlockandMetadataIfChunkExists(world, i + i1, j + j2 + 1, k + k3, ModBlocks.leaves_1, 3);
+    private boolean generateBranches(World worldIn, Random random, BlockPos pos, int type) {
+        if(type == 0) {
+            for (int i1 = 0; i1 < 1; i1++) {
+                for (int j2 = 0; j2 < 5; j2++) {
+                    for (int k3 = 0; k3 < 1; k3++) {
+                        this.setBlockAndNotifyAdequately(worldIn, pos.add(i1, j2, k3), this.blockStateLog);
+                        this.setBlockAndNotifyAdequately(worldIn, pos.add(i1, j2 + 1, k3), this.blockStateLeaves);
                     }
                 }
             }
 
-            generateLeaves(world, random, i, j + 1, k);
+            this.generateLeaves(worldIn, random, pos.up());
         }
-        if (l == 1)
+        
+        //Positive z and x direction
+        EnumFacing axis = type == 1 ? EnumFacing.SOUTH : EnumFacing.EAST; 
+        EnumFacing other = type == 1 ? EnumFacing.EAST : EnumFacing.SOUTH; 
+        
+        if (type == 1)
         {
-            setBlockandMetadataIfChunkExists(world, i, j + 1, k + 1, ModBlocks.logs_1, 3);
-            setBlockandMetadataIfChunkExists(world, i, j + 2, k + 2, ModBlocks.logs_1, 3);
-            setBlockandMetadataIfChunkExists(world, i, j + 3, k + 3, ModBlocks.logs_1, 3);
-            setBlockandMetadataIfChunkExists(world, i, j + 1, k - 1, ModBlocks.logs_1, 3);
-            setBlockandMetadataIfChunkExists(world, i, j + 2, k - 2, ModBlocks.logs_1, 3);
-            setBlockandMetadataIfChunkExists(world, i, j + 3, k - 3, ModBlocks.logs_1, 3);
+            this.setBlockAndNotifyAdequately(worldIn, pos.up(1).offset(axis, 1), this.blockStateLog);
+            this.setBlockAndNotifyAdequately(worldIn, pos.up(2).offset(axis, 2), this.blockStateLog);
+            this.setBlockAndNotifyAdequately(worldIn, pos.up(3).offset(axis, 3), this.blockStateLog);
+            this.setBlockAndNotifyAdequately(worldIn, pos.up(1).offset(axis, -1), this.blockStateLog);
+            this.setBlockAndNotifyAdequately(worldIn, pos.up(2).offset(axis, -2), this.blockStateLog);
+            this.setBlockAndNotifyAdequately(worldIn, pos.up(3).offset(axis, -3), this.blockStateLog);
             for (int j1 = 0; j1 < 1; j1++)
             {
                 for (int k2 = 3; k2 < 8; k2++)
                 {
                     for (int l3 = -3; l3 < -2; l3++)
                     {
-                        setBlockandMetadataIfChunkExists(world, i + j1, j + k2, k + l3, ModBlocks.logs_1, 3);
-                        setBlockandMetadataIfChunkExists(world, i + j1, j + k2 + 1, k + l3, ModBlocks.leaves_1, 3);
+                        this.setBlockAndNotifyAdequately(worldIn, pos.up(k2).offset(axis, l3).offset(other, j1), this.blockStateLog);
+                        this.setBlockAndNotifyAdequately(worldIn, pos.up(k2 + 1).offset(axis, l3).offset(other, j1), this.blockStateLeaves);
                     }
                 }
             }
@@ -97,54 +96,20 @@ public class WorldGenSigillaria extends WorldGenAbstractTree
                 {
                     for (int i4 = 3; i4 < 4; i4++)
                     {
-                        setBlockandMetadataIfChunkExists(world, i + k1, j + l2, k + i4, ModBlocks.logs_1, 3);
-                        setBlockandMetadataIfChunkExists(world, i + k1, j + l2 + 1, k + i4, ModBlocks.leaves_1, 3);
+                        this.setBlockAndNotifyAdequately(worldIn, pos.up(l2).offset(axis, i4).offset(other, k1), this.blockStateLog);
+                        this.setBlockAndNotifyAdequately(worldIn, pos.up(l2 + 1).offset(axis, i4).offset(other, k1), this.blockStateLeaves);
                     }
                 }
             }
 
-            generateLeaves(world, random, i, j + 4, k + 3);
-            generateLeaves(world, random, i, j + 4, k - 3);
+            this.generateLeaves(worldIn, random, pos.up(4).offset(axis, 3));
+            this.generateLeaves(worldIn, random, pos.up(4).offset(axis, -3));
         }
-        if (l == 2)
-        {
-            setBlockandMetadataIfChunkExists(world, i + 1, j + 1, k, ModBlocks.logs_1, 3);
-            setBlockandMetadataIfChunkExists(world, i + 2, j + 2, k, ModBlocks.logs_1, 3);
-            setBlockandMetadataIfChunkExists(world, i + 3, j + 3, k, ModBlocks.logs_1, 3);
-            setBlockandMetadataIfChunkExists(world, i - 1, j + 1, k, ModBlocks.logs_1, 3);
-            setBlockandMetadataIfChunkExists(world, i - 2, j + 2, k, ModBlocks.logs_1, 3);
-            setBlockandMetadataIfChunkExists(world, i - 3, j + 3, k, ModBlocks.logs_1, 3);
-            for (int l1 = -3; l1 < -2; l1++)
-            {
-                for (int i3 = 3; i3 < 8; i3++)
-                {
-                    for (int j4 = 0; j4 < 1; j4++)
-                    {
-                        setBlockandMetadataIfChunkExists(world, i + l1, j + i3, k + j4, ModBlocks.logs_1, 3);
-                        setBlockandMetadataIfChunkExists(world, i + l1, j + i3 + 1, k + j4, ModBlocks.leaves_1, 3);
-                    }
-                }
-            }
-
-            for (int i2 = 3; i2 < 4; i2++)
-            {
-                for (int j3 = 3; j3 < 8; j3++)
-                {
-                    for (int k4 = 0; k4 < 1; k4++)
-                    {
-                        setBlockandMetadataIfChunkExists(world, i + i2, j + j3, k + k4, ModBlocks.logs_1, 3);
-                        setBlockandMetadataIfChunkExists(world, i + i2, j + j3 + 1, k + k4, ModBlocks.leaves_1, 3);
-                    }
-                }
-            }
-
-            generateLeaves(world, random, i + 3, j + 4, k);
-            generateLeaves(world, random, i - 3, j + 4, k);
-        }
+        
         return true;
     }
 
-    private boolean generateLeaves(World world, Random random, int i, int j, int k)
+    private boolean generateLeaves(World worldIn, Random random, BlockPos pos)
     {
         for (int l = -1; l < 2; l++)
         {
@@ -152,9 +117,9 @@ public class WorldGenSigillaria extends WorldGenAbstractTree
             {
                 for (int l1 = 0; l1 < 1; l1++)
                 {
-                    if (world.isAirBlock(i + l, j + j1, k + l1))
+                    if (worldIn.isAirBlock(pos.add(l, j1, l1)))
                     {
-                        setBlockandMetadataIfChunkExists(world, i + l, j + j1, k + l1, ModBlocks.leaves_1, 3);
+                        this.setBlockAndNotifyAdequately(worldIn, pos.add(l, j1, l1), this.blockStateLeaves);
                     }
                 }
             }
@@ -166,65 +131,14 @@ public class WorldGenSigillaria extends WorldGenAbstractTree
             {
                 for (int i2 = -1; i2 < 2; i2++)
                 {
-                    if (world.isAirBlock(i + i1, j + k1, k + i2))
+                    if (worldIn.isAirBlock(pos.add(i1, k1, i1)))
                     {
-                        setBlockandMetadataIfChunkExists(world, i + i1, j + k1, k + i2, ModBlocks.leaves_1, 3);
+                        this.setBlockAndNotifyAdequately(worldIn, pos.add(i1, k1, i1), this.blockStateLeaves);
                     }
                 }
             }
         }
 
         return true;
-    }
-    
-    public void setBlockandMetadataIfChunkExists(World world, int x, int y, int z, Block blockId, int metadata) {
-		//if (world.getChunkProvider().chunkExists(x >> 4, z >> 4)){
-			try{
-				world.setBlock(x, y, z, blockId, metadata, 2);
-			}catch(Exception e){
-				//Work around to stop crash
-			}
-		//}
-	}
-	
-	public void setBlockandMetadataIfChunkExists(World world, int x, int y, int z, Block blockId, int metadata, int updateFlag) {
-		//if (world.getChunkProvider().chunkExists(x >> 4, z >> 4)){
-			try{
-				world.setBlock(x, y, z, blockId, metadata, updateFlag);
-			}catch(Exception e){
-				//Work around to stop crash
-			}
-		//}
-	}
-    
-    public Block getBlockIfChunkExists(World world, int x, int y, int z) {
-		//if (world.getChunkProvider().chunkExists(x >> 4, z >> 4)){
-			try{
-				return world.getBlock(x, y, z);
-			}catch(Exception e){
-				//Work around to stop crash
-			}
-		//}
-		return Blocks.air;
-	}
-    
-    public boolean isAirBlockIfChunkExists(World world, int x, int y, int z) {
-    	return this.getBlockIfChunkExists(world, x, y, z) == Blocks.air;
-    }
-    
-    public Material getBlockMaterialIfChunkExists(World world, int x, int y, int z) {
-    	Block block = this.getBlockIfChunkExists(world, x, y, z);
-        return block.getMaterial();
-    }
-    
-    public TileEntity getTileEntityIfChunkExists(World world, int x, int y, int z) {
-    	if (world.getChunkProvider().chunkExists(x >> 4, z >> 4)){
-			try{
-				return world.getTileEntity(x, y, z);
-			}catch(Exception e){
-				//Work around to stop crash
-			}
-    	}
-		return null;
     }
 }

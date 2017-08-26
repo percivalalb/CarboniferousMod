@@ -3,6 +3,7 @@ package carboniferous.world.biome;
 import java.util.Random;
 
 import carboniferous.world.feature.WorldGenCalamites;
+import carboniferous.world.feature.WorldGenSigillaria;
 import net.minecraft.world.biome.Biome.BiomeProperties;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
@@ -22,11 +23,16 @@ public class BiomeRainforest extends BiomeCarboniferous {
     public int getSkyColorByTemp(float currentTemperature) {
         return 0x339933;
     }
-
     
     @Override
     public WorldGenAbstractTree getRandomTreeFeature(Random random) {
-        return new WorldGenCalamites(false);
+    	int i = random.nextInt(6);
+    	if(i <= 1) {
+    		return new WorldGenCalamites(false);
+        }
+    	else
+    		return new WorldGenSigillaria(false);
+        
     	/**int i = random.nextInt(6);
         if (i <= 1) {
             return (WorldGenAbstractTree)new WorldGenSmallTrees(false);

@@ -22,11 +22,10 @@ public class WorldGenCalamites extends WorldGenAbstractTree {
         this.blockStateLog = ModBlocks.LOG_0.getDefaultState().withProperty(ModBlocks.LOG_0.VARIANT, EnumWood.CALAMITES);
         this.blockStateLeaves = ModBlocks.LEAVES_0.getDefaultState().withProperty(ModBlocks.LEAVES_0.VARIANT, EnumWood.CALAMITES);
     }
-
+    
     @Override
     public boolean generate(World worldIn, Random rand, BlockPos position) {
     	IBlockState soil = worldIn.getBlockState(position.down());
-    	
     	
     	boolean isSoil = (soil.getBlock().canSustainPlant(soil, worldIn, position.down(), EnumFacing.UP, ModBlocks.SAPLING_0));
     	if(isSoil && worldIn.isAirBlock(position.up(12))) {
@@ -38,9 +37,9 @@ public class WorldGenCalamites extends WorldGenAbstractTree {
                     }
                 }
             }
-
-            this.generateLeaves(worldIn, worldIn.rand, position.up(23), -1, 2);
-            this.generateLeaves(worldIn, worldIn.rand, position.up(23), -1, 2);
+            
+            this.generateLeaves(worldIn, rand, position.up(23), -1, 2);
+            this.generateLeaves(worldIn, rand, position.up(23), -1, 2);
             return true;
         }
     	

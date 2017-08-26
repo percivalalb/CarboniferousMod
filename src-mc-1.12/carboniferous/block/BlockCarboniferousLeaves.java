@@ -44,20 +44,6 @@ public class BlockCarboniferousLeaves extends BlockLeaves {
         this.setDefaultState(this.blockState.getBaseState().withProperty(VARIANT, EnumWood.LEPIDODENDRON).withProperty(CHECK_DECAY, Boolean.valueOf(true)).withProperty(DECAYABLE, Boolean.valueOf(true)).withProperty(TRANSPARENT, true));
         this.setCreativeTab(CarboniferousModAPI.CREATIVE_TAB);
     }
-    
-    @Override
-    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-    	if(playerIn instanceof EntityPlayerMP) {
-    		EntityPlayerMP playerMP = (EntityPlayerMP)playerIn;
-    		int dimension = CarboniferousModAPI.DIMENSION_TYPE.getId();
-            if (playerMP.dimension == CarboniferousModAPI.DIMENSION_TYPE.getId()) {
-            	dimension = 0;
-            }
-    		
-    		playerMP.mcServer.getPlayerList().transferPlayerToDimension(playerMP, dimension, new TeleporterCarboniferous(playerMP.mcServer.getWorld(dimension)));
-    	}
-        return false;
-    }
 
     @Override
     protected int getSaplingDropChance(IBlockState state) {
